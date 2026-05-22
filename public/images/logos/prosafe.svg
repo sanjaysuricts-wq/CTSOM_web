@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 80" width="220" height="80">
+  <!-- Prosafe shield/chevron mark -->
+  <g transform="translate(35,40)">
+    <path d="M-20,-24 L0,-28 L20,-24 L20,8 L0,24 L-20,8Z" fill="#003D6B" stroke="#003D6B" stroke-width="1"/>
+    <path d="M-14,-19 L0,-22 L14,-19 L14,5 L0,17 L-14,5Z" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+    <text x="0" y="2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">P</text>
+  </g>
+  <!-- Company name -->
+  <text x="140" y="46" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#003D6B" letter-spacing="2">PROSAFE</text>
+  <!-- Underline -->
+  <rect x="75" y="54" width="130" height="2" rx="1" fill="#003D6B"/>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" width="280" height="80">
+  <!-- Anglo-Eastern compass/anchor mark -->
+  <g transform="translate(36,40)">
+    <circle cx="0" cy="0" r="24" fill="none" stroke="#1B3A5C" stroke-width="2.5"/>
+    <circle cx="0" cy="0" r="18" fill="#1B3A5C"/>
+    <line x1="0" y1="-16" x2="0" y2="16" stroke="#FFFFFF" stroke-width="2"/>
+    <line x1="-16" y1="0" x2="16" y2="0" stroke="#FFFFFF" stroke-width="2"/>
+    <polygon points="0,-14 3,-4 -3,-4" fill="#FFFFFF"/>
+    <circle cx="0" cy="0" r="3" fill="#FFFFFF"/>
+  </g>
+  <!-- Company name two lines -->
+  <text x="175" y="34" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#1B3A5C" letter-spacing="3">ANGLO</text>
+  <text x="175" y="54" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#1B3A5C" letter-spacing="3">EASTERN</text>
+  <!-- Accent line -->
+  <rect x="115" y="38" width="120" height="1.5" rx="0.75" fill="#4A90C4"/>
+</svg>

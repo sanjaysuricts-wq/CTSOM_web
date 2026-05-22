@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80">
+  <!-- BW logo mark -->
+  <rect x="10" y="10" width="60" height="60" rx="6" fill="#003876"/>
+  <text x="40" y="50" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#FFFFFF" letter-spacing="1">BW</text>
+  <!-- Company name -->
+  <text x="150" y="36" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="400" fill="#666666" letter-spacing="2">BW</text>
+  <text x="150" y="54" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#003876" letter-spacing="2">OFFSHORE</text>
+  <!-- Wave accent -->
+  <path d="M80,68 Q110,62 140,68 Q170,74 200,68" fill="none" stroke="#003876" stroke-width="2" stroke-linecap="round"/>
+</svg>

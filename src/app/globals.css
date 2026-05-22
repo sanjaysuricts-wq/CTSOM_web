@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Primary - Old Glory Blue */
+  --color-primary: #00296A;
+  --color-primary-100: #ccd4e1;
+  --color-primary-200: #99a9c3;
+  --color-primary-300: #667ea5;
+  --color-primary-400: #335387;
+  --color-primary-500: #00296A;
+  --color-primary-600: #002155;
+  --color-primary-700: #001940;
+  --color-primary-800: #00102a;
+  --color-primary-900: #000815;
+
+  /* Accent - Isotonic Water */
+  --color-accent: #DCF953;
+  --color-accent-100: #f8fddb;
+  --color-accent-200: #f1fbb7;
+  --color-accent-300: #eafa93;
+  --color-accent-400: #e3f86f;
+  --color-accent-500: #DCF953;
+  --color-accent-600: #b0c742;
+  --color-accent-700: #849532;
+  --color-accent-800: #586321;
+  --color-accent-900: #2c3211;
+
+  /* Neutral - Porcelain */
+  --color-neutral-50: #fafbfc;
+  --color-neutral-100: #f5f6f9;
+  --color-neutral-200: #eff1f6;
+  --color-neutral-300: #eaecf3;
+  --color-neutral: #E9ECF3;
+  --color-neutral-400: #E9ECF3;
+  --color-neutral-500: #babdc2;
+  --color-neutral-600: #8c8e92;
+  --color-neutral-700: #5d5f61;
+  --color-neutral-800: #2f2f31;
+
+  /* Fonts */
+  --font-heading: var(--font-dm-sans), 'DM Sans', 'Inter', sans-serif;
+  --font-body: var(--font-public-sans), 'Public Sans', sans-serif;
+
+  /* Animations */
+  --animate-fade-up: fadeUp 0.6s ease-out forwards;
+  --animate-fade-in: fadeIn 0.4s ease-out forwards;
+  --animate-slide-in: slideIn 0.5s ease-out forwards;
+  --animate-counter: counter 2s ease-out forwards;
+  --animate-logo-scroll: logoScroll 60s linear infinite;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes counter {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes logoScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-primary-800);
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+/* Skip to content link for accessibility */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 100;
+  padding: 1rem 2rem;
+  background: var(--color-primary);
+  color: #fff;
+  transition: top 0.2s;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Focus visible for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Selection color */
+::selection {
+  background: var(--color-accent);
+  color: var(--color-primary);
+}

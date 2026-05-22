@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 80" width="220" height="80">
+  <!-- Yinson geometric mark -->
+  <g transform="translate(38,40)">
+    <polygon points="0,-24 22,0 0,24 -22,0" fill="#E31937"/>
+    <polygon points="0,-14 13,0 0,14 -13,0" fill="#FFFFFF"/>
+    <polygon points="0,-6 5,0 0,6 -5,0" fill="#E31937"/>
+  </g>
+  <!-- Company name -->
+  <text x="140" y="46" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#1A1A1A" letter-spacing="2">YINSON</text>
+  <!-- Accent line -->
+  <rect x="80" y="54" width="120" height="2.5" rx="1" fill="#E31937"/>
+</svg>

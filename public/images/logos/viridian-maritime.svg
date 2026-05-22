@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <path d="M18,42 L18,28" stroke="#4B8B3B" stroke-width="2"/>
+  <path d="M18,28 Q10,22 14,14 Q18,20 18,20 Q18,20 22,14 Q26,22 18,28 Z" fill="#4B8B3B"/>
+  <path d="M10,38 Q18,44 26,38" fill="none" stroke="#4B8B3B" stroke-width="1.5"/>
+  <text x="34" y="28" font-family="Arial,sans-serif" font-weight="bold" font-size="12" fill="#4B8B3B">Viridian</text>
+  <text x="34" y="42" font-family="Arial,sans-serif" font-size="9" fill="#4B8B3B">Maritime</text>
+</svg>

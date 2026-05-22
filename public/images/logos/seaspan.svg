@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <path d="M4,32 Q10,24 16,32 Q22,40 28,32 Q34,24 40,32" fill="none" stroke="#003DA5" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M4,40 Q10,32 16,40 Q22,48 28,40" fill="none" stroke="#003DA5" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+  <text x="48" y="28" font-family="Arial,sans-serif" font-weight="bold" font-size="14" fill="#003DA5">Seaspan</text>
+  <text x="48" y="43" font-family="Arial,sans-serif" font-size="8" fill="#003DA5">Ship Management</text>
+</svg>

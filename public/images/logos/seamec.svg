@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <g fill="#0055A4">
+    <path d="M10 35c3-5 7-9 12-9s8 4 11 9c3-5 7-9 12-9s8 4 11 9" fill="none" stroke="#0055A4" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M18 22l-2 10h4l-2-10zm0 0l6-4-4 8" fill="#0055A4"/>
+    <polygon points="16,32 20,32 18,20"/>
+    <rect x="17" y="18" width="2" height="4"/>
+    <line x1="18" y1="18" x2="24" y2="22" stroke="#0055A4" stroke-width="1"/>
+  </g>
+  <text x="62" y="30" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="bold" fill="#0055A4">SEAMEC</text>
+  <text x="62" y="43" font-family="Arial,Helvetica,sans-serif" font-size="7" fill="#0055A4">LIMITED</text>
+</svg>

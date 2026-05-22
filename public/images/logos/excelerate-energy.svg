@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <path d="M18,42 Q14,30 18,18 Q20,12 22,18 Q26,30 22,42 Z" fill="#F57F20"/>
+  <path d="M16,42 Q13,34 18,24 Q19,20 20,24 Q25,34 22,42 Z" fill="#0071CE"/>
+  <text x="34" y="28" font-family="Arial,sans-serif" font-weight="bold" font-size="12" fill="#0071CE">Excelerate</text>
+  <text x="34" y="43" font-family="Arial,sans-serif" font-size="10" fill="#F57F20">Energy</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <circle cx="22" cy="28" r="12" fill="none" stroke="#008080" stroke-width="2.5"/>
+  <circle cx="22" cy="28" r="5" fill="none" stroke="#008080" stroke-width="2"/>
+  <line x1="22" y1="16" x2="22" y2="20" stroke="#008080" stroke-width="2"/>
+  <line x1="22" y1="36" x2="22" y2="40" stroke="#008080" stroke-width="2"/>
+  <line x1="10" y1="28" x2="14" y2="28" stroke="#008080" stroke-width="2"/>
+  <line x1="30" y1="28" x2="34" y2="28" stroke="#008080" stroke-width="2"/>
+  <path d="M6 44c5-3 10-3 15 0s10 3 15 0" fill="none" stroke="#008080" stroke-width="1.5" opacity="0.5"/>
+  <text x="42" y="28" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold" fill="#008080">OZEANTEC</text>
+  <text x="42" y="40" font-family="Arial,Helvetica,sans-serif" font-size="6.5" fill="#008080">ENGINEERING</text>
+</svg>

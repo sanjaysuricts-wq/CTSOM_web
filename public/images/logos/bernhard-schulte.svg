@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <circle cx="20" cy="28" r="13" fill="none" stroke="#001F5B" stroke-width="2"/>
+  <circle cx="20" cy="28" r="3" fill="#001F5B"/>
+  <g stroke="#001F5B" stroke-width="1.8" stroke-linecap="round">
+    <line x1="20" y1="17" x2="20" y2="21"/>
+    <line x1="20" y1="35" x2="20" y2="39"/>
+    <line x1="9" y1="28" x2="13" y2="28"/>
+    <line x1="27" y1="28" x2="31" y2="28"/>
+    <line x1="12" y1="20" x2="15" y2="23"/>
+    <line x1="25" y1="33" x2="28" y2="36"/>
+    <line x1="28" y1="20" x2="25" y2="23"/>
+    <line x1="15" y1="33" x2="12" y2="36"/>
+  </g>
+  <text x="38" y="22" font-family="Arial,Helvetica,sans-serif" font-size="8" font-weight="bold" fill="#001F5B">BERNHARD</text>
+  <text x="38" y="32" font-family="Arial,Helvetica,sans-serif" font-size="8" font-weight="bold" fill="#001F5B">SCHULTE</text>
+  <text x="38" y="43" font-family="Arial,Helvetica,sans-serif" font-size="5" fill="#001F5B">SHIPMANAGEMENT</text>
+</svg>
