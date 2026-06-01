@@ -18,7 +18,7 @@ export default function SectionHeading({
   return (
     <div
       className={cn(
-        'mb-12',
+        'mb-10',
         align === 'center' && 'text-center',
         align === 'left' && 'text-left'
       )}
@@ -26,7 +26,7 @@ export default function SectionHeading({
       {/* Accent bar */}
       <div
         className={cn(
-          'mb-4 h-1 w-12 rounded-full bg-accent',
+          'mb-2 h-1 w-12 rounded-full bg-accent',
           align === 'center' && 'mx-auto'
         )}
       />

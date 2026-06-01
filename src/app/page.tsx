@@ -64,7 +64,7 @@ export default function HomePage() {
       <StatsBar />
 
       {/* Sectors Section */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-10 md:py-20">
         <div className="mx-auto w-full  px-6 lg:px-12">
           <SectionHeading
             title="Our Sectors"
@@ -73,8 +73,8 @@ export default function HomePage() {
           />
 
           {/* Mobile */}
-<div className="space-y-4 md:hidden">
-<div className="space-y-4 md:hidden">
+<div className="space-y-2 md:hidden">
+<div className="space-y-2 md:hidden">
   {sectorCards.map((sector) => {
     const isOpen = openSector === sector.title
 
@@ -90,7 +90,7 @@ export default function HomePage() {
           className="flex w-full items-center justify-between p-4"
         >
           <div className="flex items-center gap-4">
-            <div className="relative h-14 w-14 overflow-hidden rounded-lg">
+            <div className="relative h-12 w-12 overflow-hidden rounded-lg">
               <Image
                 src={sector.image}
                 alt={sector.title}
@@ -99,7 +99,7 @@ export default function HomePage() {
               />
             </div>
 
-            <h3 className="font-heading text-lg font-bold text-primary">
+            <h3 className="font-heading text-base font-bold text-primary">
               {sector.title}
             </h3>
           </div>
@@ -171,13 +171,13 @@ export default function HomePage() {
       </section>
 
       {/* Charter Tonnage Section */}
-<section className="bg-primary py-20">
+<section className="bg-primary py-15">
   <div className="mx-auto w-full px-6 lg:px-12">
     <EntryPoints />
   </div>
 </section>
   {/* Engineering Section */}
-      <section className=" bg-neutral-50 py-20">
+      <section className=" bg-neutral-50 py-15">
         <div className=" mx-auto w-full  px-6 lg:px-12">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
@@ -185,14 +185,14 @@ export default function HomePage() {
               <h2 className="font-heading text-3xl font-bold text-primary sm:text-4xl">
                 Hook-Up Support Services
               </h2>
-              <p className="mt-6 font-body text-lg leading-relaxed text-primary-300">
+              <p className="hidden md:block mt-6 font-body text-lg leading-relaxed text-primary-300">
                 CTS Offshore specialises in comprehensive hook-up support for
                 offshore platforms, ensuring safe and efficient installation and
                 commissioning. Our expert teams secure and prepare platforms for
                 operational readiness through structural welding, painting, and
                 major system connections.
               </p>
-              <p className="mt-4 font-body text-base leading-relaxed text-neutral-600">
+              <p className="hidden md:block mt-4 font-body text-base leading-relaxed text-neutral-600">
                 From cable pulling and power system integration to HVAC, fire
                 safety, and SCADA connections, we deliver end-to-end hook-up
                 services that bring platforms from construction to full
@@ -223,7 +223,7 @@ export default function HomePage() {
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
-            <div className="relative h-80 overflow-hidden rounded-xl sm:h-[28rem]">
+            <div className="relative hidden sm:block h-80 overflow-hidden rounded-xl sm:h-[28rem]">
               <Image
                 src="/images/10-media--media-borwin-gamma-platform-transport.webp"
                 alt="BorWin Gamma platform transport"
@@ -237,7 +237,7 @@ export default function HomePage() {
       </section>
 
       {/* Bespoke Teams Section */}
-      <section className="relative overflow-hidden py-20">
+      <section className="relative overflow-hidden py-10">
         <div className="absolute inset-0 z-0">
           <Image
             src={HOME_IMAGES.bespokeTeams}
@@ -248,13 +248,13 @@ export default function HomePage() {
           />
           <div className="absolute inset-0 bg-primary/80" />
         </div>
-        <div className="container relative z-10 mx-auto w-full px-6 lg:px-12">
+        <div className="container relative z-10 mx-auto w-full px-4 sm:px-6 lg:px-12">
           <div className="mx-auto max-w-3xl text-center">
             <div className="mx-auto mb-4 h-1 w-12 rounded-full bg-accent" />
-            <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-white sm:text-4xl">
               Bespoke Teams
             </h2>
-            <p className="mt-6 font-body text-lg leading-relaxed text-white/80">
+            <p className=" hidden md:block mt-6 font-body text-lg leading-relaxed text-white/80">
               We assemble dedicated teams tailored to your specific project requirements.
               Whether you need a small riding squad for routine maintenance or a full
               multi-discipline project team for a major campaign, CTS Offshore provides the

@@ -44,7 +44,7 @@ export default function Footer() {
                 alt="CTS Offshore & Marine"
                 width={300}
                 height={120}
-                className="h-14 w-auto"
+                className="h-10 sm:h-14 w-auto"
               />
             </Link>
 

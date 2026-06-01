@@ -48,8 +48,8 @@ export default function Hero({
     <section
       ref={ref}
       className={cn(
-        'relative flex items-center overflow-hidden bg-primary',
-        isHome ? 'min-h-screen' : 'py-32'
+        'relative flex items-start md:items-center md:justify-center overflow-hidden bg-primary',
+        isHome ? 'min-h-[80svh] md:min-h-screen' : 'py-20 md:py-35',
       )}
     >
       {/* Background image */}
@@ -118,7 +118,7 @@ export default function Hero({
         }}
       />
 
-      <div className="container relative z-10 mx-auto w-full  px-6 lg:px-20">
+      <div className="container relative z-10 mx-auto w-full  px-6 lg:px-20 py-10 md:py-0">
         {/* Breadcrumbs for page variant - Hidden */}
         {/* {!isHome && breadcrumbs && breadcrumbs.length > 0 && (
           <motion.nav
