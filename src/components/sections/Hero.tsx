@@ -48,8 +48,8 @@ export default function Hero({
     <section
       ref={ref}
       className={cn(
-        'relative flex items-start md:items-center md:justify-center overflow-hidden bg-primary',
-        isHome ? 'min-h-[80svh] md:min-h-screen' : 'py-20 md:py-35',
+        'relative flex items-center md:items-center md:justify-center overflow-hidden bg-primary',
+        isHome ? 'min-h-[70svh] md:min-h-screen' : 'py-20 md:py-35',
       )}
     >
       {/* Background image */}
@@ -118,7 +118,7 @@ export default function Hero({
         }}
       />
 
-      <div className="container relative z-10 mx-auto w-full  px-6 lg:px-20 py-10 md:py-0">
+      <div className="container relative z-10 mx-auto w-full  px-6 lg:px-20 py-4 md:py-0">
         {/* Breadcrumbs for page variant - Hidden */}
         {/* {!isHome && breadcrumbs && breadcrumbs.length > 0 && (
           <motion.nav
@@ -198,7 +198,7 @@ export default function Hero({
               variants={fadeUp}
               className={cn(
                 'mt-6 font-body text-lg leading-relaxed text-white/80',
-                isHome && 'text-xl'
+                isHome && 'text-base md:text-xl'
               )}
             >
               {description}
@@ -245,7 +245,7 @@ export default function Hero({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5, duration: 0.8 }}
-            className="absolute bottom-10 left-1/2 -translate-x-1/2"
+            className="hidden md:block absolute bottom-10 left-1/2 -translate-x-1/2"
           >
             <motion.div
               animate={{ y: [0, 8, 0] }}

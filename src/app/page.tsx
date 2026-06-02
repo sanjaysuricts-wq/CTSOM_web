@@ -119,7 +119,7 @@ export default function HomePage() {
 
             <Link
               href={sector.href}
-              className="mt-4 inline-flex items-center gap-2 font-semibold text-accent"
+              className="mt-4 inline-flex items-center gap-2 font-semibold text-[#00296A]"
             >
               Explore Sector
               <ArrowRight className="h-4 w-4" />
