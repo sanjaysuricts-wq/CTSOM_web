@@ -7,9 +7,9 @@ async function getZohoAccessToken() {
       'Content-Type': 'application/x-www-form-urlencoded',
     },
     body: new URLSearchParams({
-      client_id: '1000.75C8MF0TZ7O7R1GKKJGHMGFC9PKCML',
-      client_secret: '225e827d97e13a022428dec3c07180b72abda708a0',
-      refresh_token: '1000.96ae969fda2d3bf7163710231dd61ac5.29590a546035b7b2ba0eddf4e2e21f6f',
+      client_id: process.env.ZOHO_CLIENT_ID!,
+      client_secret: process.env.ZOHO_CLIENT_SECRET!,
+      refresh_token: process.env.ZOHO_REFRESH_TOKEN!,
       grant_type: 'refresh_token',
     }),
   })
