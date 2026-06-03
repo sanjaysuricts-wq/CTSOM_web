@@ -229,7 +229,8 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ Section */}
-      { <section className="bg-white py-20">
+      <section className="bg-white py-20">
+
         <div className="container mx-auto px-6 lg:px-8">
           <SectionHeading
             title="Frequently Asked Questions"
@@ -259,27 +260,29 @@ export default function ContactPage() {
               ))}
             </div>
           </div>
-
-          <div className="mt-12 text-center">
-            <p className="font-body text-sm text-neutral-500">
-              Still have questions?{' '}
-              <a
-                href={`mailto:${COMPANY.email}`}
-                className="font-semibold text-primary hover:text-accent-700 transition-colors duration-200"
-              >
-                Email us directly
-              </a>{' '}
-              or call{' '}
-              <a
-                href={`tel:${COMPANY.phone}`}
-                className="font-semibold text-primary hover:text-accent-700 transition-colors duration-200"
-              >
-                {COMPANY.phone}
-              </a>
-            </p>
-          </div>
         </div>
-      </section> }
+
+        <div className="mt-12 text-center">
+          <p className="font-body text-sm text-neutral-500">
+            Still have questions?{' '}
+            <a
+              href={`mailto:${COMPANY.email}`}
+              className="font-semibold text-primary hover:text-accent-700 transition-colors duration-200"
+            >
+              Email us directly
+            </a>{' '}
+            or call{' '}
+            <a
+              href={`tel:${COMPANY.phone}`}
+              className="font-semibold text-primary hover:text-accent-700 transition-colors duration-200"
+            >
+              {COMPANY.phone}
+            </a>
+          </p>
+        </div>
+      </section>
+
     </>
+
   )
 }

@@ -59,6 +59,7 @@ export default function RootLayout({
 
         <main id="main-content" className="min-h-screen">
           {children}
+            <WhatsAppButton />
     
         </main>
        <CookieBanner />
@@ -66,8 +67,8 @@ export default function RootLayout({
         {/* <EmergencyChat /> */} {/* Hidden temporarily */}
 
         {/* Zoho SalesIQ Chat Widget */}
-     {children}
-  <WhatsAppButton />
+
+
       </body>
     </html>
   )
