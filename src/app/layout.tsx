@@ -53,16 +53,16 @@ export default function RootLayout({
         >
           Skip to content
         </a> */}
-          <GoogleAnalytics />
+        <GoogleAnalytics />
 
         <Header />
 
         <main id="main-content" className="min-h-screen">
           {children}
-            <WhatsAppButton />
-    
+          <WhatsAppButton />
+
         </main>
-       <CookieBanner />
+        <CookieBanner />
         <Footer />
         {/* <EmergencyChat /> */} {/* Hidden temporarily */}
 

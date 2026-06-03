@@ -111,7 +111,7 @@ export default function LocationsPage() {
         description="Get in touch with our local team to discuss your requirements. Our regional experts are ready to provide tailored solutions for your marine and offshore needs."
         primaryCTA={{ label: 'Contact Us', href: '/contact' }}
         secondaryCTA={{ label: 'Call Us Now', href: `tel:${COMPANY.phone}` }}
-        backgroundImage = '/images/lower banners_location.webp'
+        backgroundImage='/images/lower banners_location.webp'
       />
     </>
   )

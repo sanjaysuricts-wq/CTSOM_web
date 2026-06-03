@@ -60,7 +60,7 @@ export const LOCATIONS = [
     address: 'Office No.1806, Damac Business Tower, Business Bay, Dubai, UAE',
     lat: 25.2048,
     lng: 55.2708,
-    services: ['Engine Maintenance', 'Fabrication', 'Riding Teams','Spares supply','Engineering Services'],
+    services: ['Engine Maintenance', 'Fabrication', 'Riding Teams', 'Spares supply', 'Engineering Services'],
   },
   {
     country: 'Singapore',
@@ -115,7 +115,7 @@ export const LOCATIONS = [
     address: 'Strada Brailei Nr 171A, Birou 1 si birou 2, etaj 2, Galati 800336, Romania',
     lat: 45.4353,
     lng: 28.0080,
-    services: [ 'Fabrication', 'Shipyard Support'],
+    services: ['Fabrication', 'Shipyard Support'],
   },
   {
     country: 'Brazil',
@@ -157,8 +157,8 @@ export interface Sector {
   title: string
   shortTitle: string
   description: string
-  bannerImage ?: string
-  bannerVideo ?: string
+  bannerImage?: string
+  bannerVideo?: string
   servicesBackgroundImage: string
   icon: string
   services: SectorService[]
@@ -471,7 +471,7 @@ export const SERVICE_PAGES: ServicePage[] = [
         title: 'Energy Efficiency Solutions',
         description: 'Our energy efficiency solutions (ESD) include marine absorption chillers, variable frequency drives, and micro boilers that significantly reduce fuel consumption and emissions.',
         image: '/images/services_decarbonisation_Energy Efficiency Solutions.webp',
-        items: ['Marine Absorption Chillers', 'Variable Frequency Drives', 'Micro Boilers','Pre-duct / PSS (Pre-Swirl Stator)','PBCF (Propeller boss cap fins) / Twisted rudder & bulb'],
+        items: ['Marine Absorption Chillers', 'Variable Frequency Drives', 'Micro Boilers', 'Pre-duct / PSS (Pre-Swirl Stator)', 'PBCF (Propeller boss cap fins) / Twisted rudder & bulb'],
       },
       {
         title: 'Hydrodynamic & Power Solutions',
@@ -637,7 +637,7 @@ export const SERVICE_PAGES: ServicePage[] = [
         title: 'Specialized Services',
         description: 'Our turnkey engineering approach ensures seamless project delivery with high-fidelity engineering inputs and full regulatory compliance across all maritime jurisdictions.',
         image: '/images/services_Turnkey Engineering Solutions_Specialized Services (1).webp',
-        items: ['OCIMF Compliance: Full Turnkey Engineering Solutions', 'Mooring Analysis and sea fastening calculations', 'Energy saving devices (ESD) retro solutions- feasibility and detail engineering', 'Detailed assessment for computational fluid dynamics (CFD).', 'Grain Loading stability upgrade calculations for regulation compliance', 'Supervision and Project Management','Regulatory Compliance – IMO DCS, EEXI/ CII calculations, EU ETS and more'],
+        items: ['OCIMF Compliance: Full Turnkey Engineering Solutions', 'Mooring Analysis and sea fastening calculations', 'Energy saving devices (ESD) retro solutions- feasibility and detail engineering', 'Detailed assessment for computational fluid dynamics (CFD).', 'Grain Loading stability upgrade calculations for regulation compliance', 'Supervision and Project Management', 'Regulatory Compliance – IMO DCS, EEXI/ CII calculations, EU ETS and more'],
       },
     ],
   },
@@ -749,7 +749,7 @@ export const SERVICE_PAGES: ServicePage[] = [
         image: '/images/services_hydrogen_5.webp',
         items: ['Compressed H2 limits cargo and poses safety risks', 'Liquid H2 needs cryogenics and high energy', 'Methanol/biofuels lack scalability and long-term viability'],
       },
-            {
+      {
         title: '',
         description: '',
         items: ['Our Solution stores hydrogen in a liquid carrier at ambient conditions, safe, scalable and cost-effective, eliminating high CAPEX, space issues and complexity', 'A real path to zero-emission operations, ready for deployment at fossil parity',],
@@ -758,7 +758,7 @@ export const SERVICE_PAGES: ServicePage[] = [
         title: 'POWERING PORTS WITH HYDROGEN: HERE’S WHY',
         description: '',
         image: '/images/services_hydrogen_3.webp',
-        items: ['No cryogenic or high-pressure systems needed','Cost parity with marine diesel (MDO)','Zero-carbon maritime operations','50% faster deployment', 'Easy integration with existing port infrastructure', 'Lower operational risks', 'Scalable across offshore,defense and other sectors'],
+        items: ['No cryogenic or high-pressure systems needed', 'Cost parity with marine diesel (MDO)', 'Zero-carbon maritime operations', '50% faster deployment', 'Easy integration with existing port infrastructure', 'Lower operational risks', 'Scalable across offshore,defense and other sectors'],
       },
     ],
   },

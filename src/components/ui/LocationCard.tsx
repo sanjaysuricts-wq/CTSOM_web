@@ -56,7 +56,7 @@ export default function LocationCard({
 
       {/* Header – always visible, blue background */}
       <div
-      onClick={()=>setOpen(!open)}
+        onClick={() => setOpen(!open)}
         className={cn(
           'flex cursor-pointer items-center gap-3 rounded-t-xl px-5 py-4 transition-colors duration-200',
           isHQ ? 'bg-primary' : 'bg-primary'
