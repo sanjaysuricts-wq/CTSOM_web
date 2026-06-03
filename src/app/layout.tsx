@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer'
 import { OrganizationSchema } from '@/components/shared/StructuredData'
 import CookieBanner from '@/components/CookieBanner'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
+import WhatsAppButton from '@/components/WhatsAppButton'
 // import EmergencyChat from '@/components/ui/EmergencyChat' // Hidden temporarily
 
 
@@ -65,7 +66,8 @@ export default function RootLayout({
         {/* <EmergencyChat /> */} {/* Hidden temporarily */}
 
         {/* Zoho SalesIQ Chat Widget */}
-   
+     {children}
+  <WhatsAppButton />
       </body>
     </html>
   )
