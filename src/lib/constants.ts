@@ -1327,7 +1327,7 @@ export const NAV_ITEMS = [
       ...SECTORS.flatMap((sector) =>
         sector.services.slice(0, 2).map((s) => ({ label: s.shortTitle, href: `/services/${s.slug}` }))
       ),
-      { label: 'View All Services', href: '/services' },
+      // { label: 'View All Services', href: '/services' },
     ],
   },
   // { label: 'Case Studies', href: '/case-studies' },
