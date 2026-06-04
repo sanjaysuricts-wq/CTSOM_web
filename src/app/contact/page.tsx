@@ -1,8 +1,9 @@
 import { Metadata } from 'next'
-import Link from 'next/link'
 import { Phone, Mail, MapPin, Clock, ArrowRight } from 'lucide-react'
 import Hero from '@/components/sections/Hero'
 import dynamic from 'next/dynamic'
+import LocationCardClient from './LocationCardClient'
+import LocationGridClient from './LocationGridClient'
 // import CTASection from '@/components/sections/CTASection'
 import ContactForm from '@/components/shared/ContactForm'
 import SectionHeading from '@/components/ui/SectionHeading'
@@ -180,7 +181,7 @@ export default function ContactPage() {
             description="With offices strategically positioned across 9 countries, we provide local expertise with global reach."
           />
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {/* <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {LOCATIONS.map((location) => (
               <div
                 key={location.city}
@@ -197,6 +198,7 @@ export default function ContactPage() {
                     </span>
                   )}
                 </div>
+
                 <p className="mt-1 font-body text-sm text-neutral-500">
                   {location.country}
                 </p>
@@ -224,13 +226,23 @@ export default function ContactPage() {
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
+
+          {/* <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+  {LOCATIONS.map((location) => (
+    <LocationCardClient
+      key={location.city}
+      location={location}
+    />
+  ))}
+</div> */}
+<LocationGridClient />
+
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-white py-20">
-
+      {<section className="bg-white py-20">
         <div className="container mx-auto px-6 lg:px-8">
           <SectionHeading
             title="Frequently Asked Questions"
@@ -260,29 +272,27 @@ export default function ContactPage() {
               ))}
             </div>
           </div>
+          <div className="mt-12 text-center">
+            <p className="font-body text-sm text-neutral-500">
+              Still have questions?{' '}
+              <a
+                href={`mailto:${COMPANY.email}`}
+                className="font-semibold text-primary hover:text-accent-700 transition-colors duration-200"
+              >
+                Email us directly
+              </a>{' '}
+              or call{' '}
+              <a
+                href={`tel:${COMPANY.phone}`}
+                className="font-semibold text-primary hover:text-accent-700 transition-colors duration-200"
+              >
+                {COMPANY.phone}
+              </a>
+            </p>
+          </div>
         </div>
-
-        <div className="mt-12 text-center">
-          <p className="font-body text-sm text-neutral-500">
-            Still have questions?{' '}
-            <a
-              href={`mailto:${COMPANY.email}`}
-              className="font-semibold text-primary hover:text-accent-700 transition-colors duration-200"
-            >
-              Email us directly
-            </a>{' '}
-            or call{' '}
-            <a
-              href={`tel:${COMPANY.phone}`}
-              className="font-semibold text-primary hover:text-accent-700 transition-colors duration-200"
-            >
-              {COMPANY.phone}
-            </a>
-          </p>
-        </div>
-      </section>
+      </section>}
 
     </>
-
   )
 }

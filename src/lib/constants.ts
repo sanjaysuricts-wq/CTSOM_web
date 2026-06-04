@@ -61,6 +61,7 @@ export const LOCATIONS = [
     lat: 25.2048,
     lng: 55.2708,
     services: ['Engine Maintenance', 'Fabrication', 'Riding Teams', 'Spares supply', 'Engineering Services'],
+    workshopAddress:'Office No.2917, Fujairah Free Zone, Fujaira, Dubai, UAE',
   },
   {
     country: 'Singapore',
