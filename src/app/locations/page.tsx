@@ -85,7 +85,7 @@ export default function LocationsPage() {
             description="Each of our offices is staffed with experienced professionals ready to support your operations with local knowledge and global standards."
           />
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 items-start">
             {LOCATIONS.map((location) => (
               <LocationCard
                 key={location.city}

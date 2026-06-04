@@ -40,7 +40,8 @@ export default function LocationCard({
 
   return (
     <div
-      className="group relative rounded-xl border border-neutral-100 bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg"
+      className="h-fit self-start group relative rounded-xl border border-neutral-100 bg-white shadow-sm transition-all duration-300 hover:shadow-md p-0"
+      //   p-6 
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >
