@@ -971,6 +971,10 @@ export const PAGE_BANNERS = {
   media: '/images/20---media-banner---media.jpg',
   locations: '/images/locations banner (2).webp',
   contact: '/images/contact us banner.webp',
+  partnerships: '/images/partnerships_banner.webp',
+  gallery: '/images/lower banners_services (1).webp',
+  newsroom: '/images/Newsroom_Banner.webp',
+
 } as const
 
 export const SECTOR_DETAIL_IMAGES = {
@@ -1331,8 +1335,8 @@ export const NAV_ITEMS = [
       // { label: 'View All Services', href: '/services' },
     ],
   },
-  // { label: 'Case Studies', href: '/case-studies' },
-  // { label: 'Media', href: '/media' }, // Hidden temporarily
+  { label: 'Case Studies', href: '/case-studies' },
+  { label: 'News & Media', href: '/news-media' },
   { label: 'Locations', href: '/locations' },
   { label: 'Contact', href: '/contact' },
 ] as const

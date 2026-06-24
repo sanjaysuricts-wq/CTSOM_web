@@ -1,12 +1,15 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import Hero from '@/components/sections/Hero'
 import CTASection from '@/components/sections/CTASection'
 import SectionHeading from '@/components/ui/SectionHeading'
-import { COMPANY, PAGE_BANNERS } from '@/lib/constants'
+import { COMPANY, CASE_STUDIES } from '@/lib/constants'
+import { PAGE_BANNERS } from "@/lib/constants";
+import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: `Media | ${COMPANY.shortName}`,
-  description: 'Latest news, updates, and media resources from CTS Offshore and Marine. Stay informed about our projects, industry insights, and company developments.',
+  title: `Newsroom | ${COMPANY.shortName}`,
+  description: 'Latest news, press releases, and company updates from CTS Offshore and Marine.',
 }
 
 const newsItems = [
@@ -56,20 +59,23 @@ function formatDate(dateStr: string) {
   })
 }
 
-export default function MediaPage() {
+export default function NewsroomPage() {
   return (
     <>
       <Hero
         variant="page"
-        title="Media"
-        subtitle="News, Updates & Insights"
-        backgroundImage={PAGE_BANNERS.media}
-        // breadcrumbs={[{ label: 'Media', href: '/media' }]}
+        title="Newsroom"
+        subtitle="LATEST UPDATES, EVENTS, AND INDUSTRY ACTIVITY."
+        backgroundImage={PAGE_BANNERS.newsroom}
+        breadcrumbs={[
+          { label: 'News & Media', href: '/news-media' },
+          { label: 'Newsroom', href: '/news-media/newsroom' },
+        ]}
       />
 
       {/* News Grid */}
       <section className="bg-white py-20">
-        <div className="container mx-auto w-full  px-6 lg:px-12">
+        <div className="container mx-auto w-full px-2 lg:px-2">
           <SectionHeading
             title="Latest News"
             subtitle="Stay Informed"
@@ -109,9 +115,63 @@ export default function MediaPage() {
         </div>
       </section>
 
+      {/* Events & Press */}
+      <section className="bg-primary  py-20">
+        <div className="container mx-auto w-full px-2 lg:px-2">
+          <SectionHeading
+            title="Events & Press"
+            subtitle=""
+            description="A visual archive of exihibitions, conferences,and industry events we take part in, including recaps and highlights"
+          />
+
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {CASE_STUDIES.slice(0, 3).map((study) => (
+              <Link
+                key={study.slug}
+                href={`/case-studies/${study.slug}`}
+                className="group block"
+              >
+                <article className="overflow-hidden rounded-xl border border-neutral-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+
+                  {/* Image */}
+                  <div className="relative h-44 w-full overflow-hidden">
+                    <Image
+                      src={study.image}
+                      alt={study.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/20 to-transparent" />
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <span className="inline-block rounded-full bg-accent/20 px-3 py-1 text-xs font-semibold text-primary">
+                      {study.sector}
+                    </span>
+
+                    <h3 className="mt-3 font-heading text-lg font-bold text-primary group-hover:text-primary-600 line-clamp-2">
+                      {study.title}
+                    </h3>
+
+                    <p className="mt-2 font-body text-sm text-neutral-600 line-clamp-3">
+                      {study.summary}
+                    </p>
+
+                    <div className="mt-4 text-sm font-semibold text-primary group-hover:text-accent-700">
+                      Read Case Study →
+                    </div>
+                  </div>
+                </article>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Press Contact */}
       <section className="bg-neutral-50 py-16">
-        <div className="container mx-auto w-full  px-6 lg:px-12">
+        <div className="container mx-auto w-full px-2 lg:px-2">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="font-heading text-2xl font-bold text-primary">Press & Media Enquiries</h2>
             <p className="mt-4 font-body text-base text-neutral-600">
@@ -133,3 +193,5 @@ export default function MediaPage() {
     </>
   )
 }
+
+// Made with Bob

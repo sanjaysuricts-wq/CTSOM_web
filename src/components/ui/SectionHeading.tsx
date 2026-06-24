@@ -4,7 +4,8 @@ interface SectionHeadingProps {
   title: string
   subtitle?: string
   description?: string
-  align?: 'left' | 'center'
+  midImage?:string
+  align?: 'left' | 'center' | 'right'
   light?: boolean
 }
 
