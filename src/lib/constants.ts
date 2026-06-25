@@ -1340,3 +1340,107 @@ export const NAV_ITEMS = [
   { label: 'Locations', href: '/locations' },
   { label: 'Contact', href: '/contact' },
 ] as const
+
+// ──────────────────────────────────────────
+// NEWS ITEMS
+// ──────────────────────────────────────────
+
+export interface NewsItem {
+  slug: string
+  date: string
+  title: string
+  category: string
+  summary: string
+  image: string
+  body: string[]
+}
+
+export const NEWS_ITEMS: NewsItem[] = [
+  {
+    slug: 'cts-uae-achieves-icv-certification',
+    date: '2025-06-15',
+    title: 'CTS UAE Achieves ICV Certification',
+    category: 'Company News',
+    image: '/images/locations banner (2).webp',
+    summary: 'CTS achieved In-Country Value (ICV) certification in the UAE ..',
+    body: [
+      'CTS achieved In-Country Value (ICV) certification in the UAE, reinforcing its contribution to local',
+      'economic development through employment, procurement, and in-country operations. The certification',
+      'strengthens CTS’s alignment with national industrial and energy priorities',
+      'This milestone enhances CTS’s position within the UAE offshore and marine sector, improving its',
+      'competitiveness with clients prioritizing ICV-compliant partners.',
+    ],
+  },
+  {
+    slug: 'cts-becomes-irata-certified',
+    date: '2025-02-20',
+    title: 'CTS Becomes IRATA Certified',
+    category: 'Project Update',
+    image: '/images/services_comprehensive inspections surveys_ropeaccesssolutions.webp',
+    summary: 'CTS obtained IRATA Certification, strengthening its offshore rope access capability and ..',
+    body: [
+      'CTS obtained IRATA certification, strengthening its offshore rope access capability and ensuring compliance',
+      'with international safety standards for high-risk marine and industrial environments.',
+      'With certified rope access teams, CTS is able to deliver safer and more efficient inspection, maintenance, and',
+      'offshore support services across vessels and structures.',
+    ],
+  },
+  {
+    slug: 'cts-expands-european-presence-germany-office',
+    date: '2025-03-05',
+    title: 'CTS Expands European Presence With New Germany Office',
+    category: 'Company News',
+    image: '/images/lower banners_location.webp',
+    summary: 'CTS expanded its European footprint with a new office in Germany, supporting its ..',
+    body: [
+      'CTS expanded its European footprint with a new office in Germany, supporting its long-term strategy to',
+      'strengthen operations across key offshore and maritime hubs in Europe.',
+      'The new base improves regional responsiveness, project coordination, and client engagement, reinforcing',
+      'CTS’s global service network.',
+    ],
+  },
+  {
+    slug: 'gf-thermoplastic-insitu-ballast-retrofit',
+    date: '2025-11-15',
+    title: 'CTS Executes One of the First GF+ Thermoplastic In-Situ Ballast Retrofits',
+    category: 'Industry Insight',
+    image: '/images/services_gf piping solutions_Key Applications.webp',
+    summary: 'CTS executed one of the first GF+ thermoplastic in-situ ballast system retrofits onboard ..',
+    body: [
+      'CTS executed one of the first GF+ thermoplastic in-situ ballast system retrofits onboard a container vessel in',
+      'Hong Kong, completing installation works within confined duct tunnel spaces while the vessel remained fully operational.',
+      'The project, delivered in collaboration with GF Piping Systems, introduced a corrosion-resistant and',
+      'lightweight piping solution, completed under full Class compliance with DNV-approved testing and QA documentation',
+    ],
+  },
+  {
+    slug: 'strengthening-technical-leadership-rotterdam',
+    date: '2025-12-01',
+    title: 'Strengthening Technical Leadership at Rotterdam Branch',
+    category: 'Project Update',
+    image: '/images/lower banners_about.webp',
+    summary: 'CTS advanced Adilson Jose Pereira Junior from Project Engineer to Technical Manager at the ...',
+    body: [
+      'CTS is collaborating with INFENER on the development of a Green Energy Hub in Crete near Kastelli',
+      'Airport, integrating solar generation, battery storage, and hydrogen production into a unified energy system.',
+      'The project supports applications across port electrification, shore power, and alternative fuels including',
+      'hydrogen, e-methanol, and e-SAF, aligning with evolving regulatory frameworks such as ETS and FuelEU',
+      'Maritime. Backed by regional authorities, the initiative positions Crete as a strategic hub for integrated energy infrastructure in Europe.',
+    ],
+  },
+  {
+    slug: 'cts-collaborates-crete-green-energy-hub',
+    date: '2026-04-15',
+    title: 'CTS Collaborates on Crete Green Energy Hub for Maritime Decarbonisation',
+    category: 'Project Update',
+    image: '/images/services_decarbonisation_Energy Efficiency Solutions.webp',
+    summary: 'CTS is collaborating with INFENER on the development of a Green Energy Hub in Crete, integrating ....',
+    body: [
+      'CTS Offshore and Marine is proud to announce a collaboration with INFENER on the development of a Green Energy Hub near Kastelli Airport in Crete — a landmark project that aligns with our commitment to supporting the maritime energy transition.',
+      'The hub will integrate solar generation, battery energy storage, and green hydrogen production capabilities, creating a multi-vector clean energy facility designed to serve the shipping and maritime sector operating across the Eastern Mediterranean.',
+      'The decarbonisation of shipping is one of the defining challenges of our industry. Green hydrogen and shore power infrastructure are essential enablers — and projects like this Crete hub represent the kind of long-term investment needed to make clean maritime fuel commercially viable at scale.',
+      'CTS\'s involvement brings our expertise in offshore and marine project execution, supply chain management, and technical delivery to the consortium, complementing INFENER\'s energy infrastructure development capability.',
+      'We are committed to playing an active role in the maritime energy transition, and this collaboration is a clear expression of that commitment. We look forward to sharing further updates as the project progresses.',
+    ],
+  },
+]

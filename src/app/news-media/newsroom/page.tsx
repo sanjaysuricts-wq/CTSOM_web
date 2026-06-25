@@ -1,55 +1,43 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import Hero from '@/components/sections/Hero'
 import CTASection from '@/components/sections/CTASection'
 import SectionHeading from '@/components/ui/SectionHeading'
-import { COMPANY, CASE_STUDIES } from '@/lib/constants'
+import { COMPANY, NEWS_ITEMS } from '@/lib/constants'
 import { PAGE_BANNERS } from "@/lib/constants";
-import Image from 'next/image'
+
+const galleryHighlights = [
+  {
+    title: 'NOR Shipping 2025',
+    location: 'Oslo, Norway',
+    tag: 'Events',
+    image: '/images/nor_shipping_2025_1.webp',
+    description:
+      "A great few days at Nor-Shipping 2025 meeting industry professionals, sharing ideas, and exploring what's next for the maritime industry.",
+  },
+  {
+    title: 'Seatrade Maritime Logistics Middle East',
+    location: 'Dubai, UAE',
+    tag: 'Events',
+    image: '/images/Newsroom_EventsNpress_SMLmeCover.webp',
+    description:
+      'Engaging with industry professionals and exploring key developments shaping the future of maritime and logistics operations across the region.',
+  },
+  {
+    title: 'GF+ Piping Partnership Meeting',
+    location: 'Dubai, UAE',
+    tag: 'Partnerships',
+    image: '/images/1761909239111 copy.webp',
+    description:
+      'Productive discussions with GF Piping Systems in Dubai, exploring technical requirements and collaboration opportunities across upcoming projects.',
+  },
+]
 
 export const metadata: Metadata = {
   title: `Newsroom | ${COMPANY.shortName}`,
   description: 'Latest news, press releases, and company updates from CTS Offshore and Marine.',
 }
-
-const newsItems = [
-  {
-    date: '2025-12-15',
-    title: 'CTS Offshore Expands Operations in Southeast Asia',
-    summary: 'New project contracts in Singapore and Indonesia mark continued growth in the Asia Pacific region.',
-    category: 'Company News',
-  },
-  {
-    date: '2025-11-20',
-    title: 'Wind Turbine Maintenance Programme Completed Ahead of Schedule',
-    summary: 'Major offshore wind farm maintenance campaign delivered two weeks ahead of schedule with zero incidents.',
-    category: 'Project Update',
-  },
-  {
-    date: '2025-10-05',
-    title: 'ISO Recertification Achieved Across All Standards',
-    summary: 'CTS Offshore successfully recertified to ISO 9001, ISO 14001, and ISO 45001, reaffirming our commitment to quality, environment, and safety.',
-    category: 'Certification',
-  },
-  {
-    date: '2025-09-12',
-    title: 'Decarbonisation Solutions: Supporting the Energy Transition',
-    summary: 'CTS Offshore invests in new green technology capabilities to support vessel owners in reducing their carbon footprint.',
-    category: 'Industry Insight',
-  },
-  {
-    date: '2025-08-01',
-    title: 'FPSO Live Production Repair Campaign - West Africa',
-    summary: 'Successful completion of a complex live production repair campaign on an operational FPSO, saving the client significant downtime costs.',
-    category: 'Project Update',
-  },
-  {
-    date: '2025-07-15',
-    title: 'Cruise Ship Outfitting Project Delivered On Time',
-    summary: 'Major cruise vessel interior refurbishment completed during scheduled dry dock, meeting all quality and schedule targets.',
-    category: 'Project Update',
-  },
-]
 
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString('en-GB', {
@@ -80,36 +68,56 @@ export default function NewsroomPage() {
             title="Latest News"
             subtitle="Stay Informed"
             description="Keep up to date with the latest news, project updates, and industry insights from CTS Offshore."
+            align="left"
           />
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {newsItems.map((item) => (
-              <article
-                key={item.title}
-                className="group overflow-hidden rounded-xl border border-neutral-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+            {NEWS_ITEMS.map((item) => (
+              <Link
+                key={item.slug}
+                href={`/news-media/newsroom/${item.slug}`}
+                className="group block"
               >
-                {/* Colored top bar */}
-                <div className="h-1.5 bg-gradient-to-r from-primary to-accent" />
-
-                <div className="p-6">
-                  <div className="mb-3 flex items-center gap-3">
-                    <span className="rounded-full bg-accent/20 px-3 py-1 font-body text-xs font-semibold text-primary">
-                      {item.category}
-                    </span>
-                    <span className="font-body text-xs text-neutral-500">
-                      {formatDate(item.date)}
-                    </span>
+                <article className="overflow-hidden rounded-xl border border-neutral-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                  {/* Cover image */}
+                  <div className="relative h-44 w-full overflow-hidden">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
                   </div>
 
-                  <h3 className="mb-3 font-heading text-lg font-bold text-primary line-clamp-2">
-                    {item.title}
-                  </h3>
+                  {/* Accent bar */}
+                  <div className="h-1 bg-gradient-to-r from-primary to-accent" />
 
-                  <p className="font-body text-sm leading-relaxed text-neutral-600 line-clamp-3">
-                    {item.summary}
-                  </p>
-                </div>
-              </article>
+                  <div className="p-6">
+                    <div className="mb-3 flex items-center gap-3">
+                      <span className="rounded-full bg-accent/20 px-3 py-1 font-body text-xs font-semibold text-primary">
+                        {item.category}
+                      </span>
+                      <span className="font-body text-xs text-neutral-500">
+                        {formatDate(item.date)}
+                      </span>
+                    </div>
+
+                    <h3 className="mb-2 font-heading text-lg font-bold text-primary line-clamp-2 group-hover:text-primary-600 transition-colors">
+                      {item.title}
+                    </h3>
+
+                    <p className="font-body text-sm leading-relaxed text-neutral-600 line-clamp-3">
+                      {item.summary}
+                    </p>
+
+                    <div className="mt-4 text-sm font-semibold text-primary group-hover:text-accent-700 transition-colors">
+                      Read More →
+                    </div>
+                  </div>
+                </article>
+              </Link>
             ))}
           </div>
         </div>
@@ -122,13 +130,15 @@ export default function NewsroomPage() {
             title="Events & Press"
             subtitle=""
             description="A visual archive of exihibitions, conferences,and industry events we take part in, including recaps and highlights"
+            align="left"
+            light
           />
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {CASE_STUDIES.slice(0, 3).map((study) => (
+            {galleryHighlights.map((item) => (
               <Link
-                key={study.slug}
-                href={`/case-studies/${study.slug}`}
+                key={item.title}
+                href={`/news-media/gallery?story=${encodeURIComponent(item.title)}`}
                 className="group block"
               >
                 <article className="overflow-hidden rounded-xl border border-neutral-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
@@ -136,8 +146,8 @@ export default function NewsroomPage() {
                   {/* Image */}
                   <div className="relative h-44 w-full overflow-hidden">
                     <Image
-                      src={study.image}
-                      alt={study.title}
+                      src={item.image}
+                      alt={item.title}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
@@ -146,20 +156,23 @@ export default function NewsroomPage() {
 
                   {/* Content */}
                   <div className="p-6">
-                    <span className="inline-block rounded-full bg-accent/20 px-3 py-1 text-xs font-semibold text-primary">
-                      {study.sector}
-                    </span>
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="inline-block rounded-full bg-accent/20 px-3 py-1 text-xs font-semibold text-primary">
+                        {item.tag}
+                      </span>
+                      <span className="font-body text-xs text-neutral-500">{item.location}</span>
+                    </div>
 
-                    <h3 className="mt-3 font-heading text-lg font-bold text-primary group-hover:text-primary-600 line-clamp-2">
-                      {study.title}
+                    <h3 className="font-heading text-lg font-bold text-primary group-hover:text-primary-600 line-clamp-2">
+                      {item.title}
                     </h3>
 
                     <p className="mt-2 font-body text-sm text-neutral-600 line-clamp-3">
-                      {study.summary}
+                      {item.description}
                     </p>
 
                     <div className="mt-4 text-sm font-semibold text-primary group-hover:text-accent-700">
-                      Read Case Study →
+                      View Gallery →
                     </div>
                   </div>
                 </article>

@@ -120,7 +120,7 @@ export default function PartnershipsPage() {
                     order-1 lg:order-none mt-6 lg:mt-0
                     ${item.reverse
                       ? "w-full lg:col-start-1 lg:ml-12"
-                      : "w-full lg:w-[120%] lg:col-start-2 lg:-mr-12"
+                      : "w-full lg:w-[110%] lg:col-start-2 lg:-mr-12"
                     }
                   `}
                 >
@@ -129,7 +129,7 @@ export default function PartnershipsPage() {
                     alt={item.title.replace(/\n/g, " ")}
                     className="
                       w-full rounded-xl object-contain
-                      h-[240px] sm:h-[300px] md:h-[420px] lg:h-[520px] xl:h-[580px]
+                      h-[240px] sm:h-[300px] md:h-[420px] lg:h-[500px] xl:h-[560px]
                     "
                   />
                 </div>
@@ -140,7 +140,7 @@ export default function PartnershipsPage() {
                     w-full order-2 lg:order-none
                     flex flex-col
                     ${item.reverse
-                      ? "lg:col-start-2 lg:row-start-1 items-end text-right lg:mr-12"
+                      ? "lg:col-start-2 lg:row-start-1 items-end text-right lg:mr-12 lg:pr-8 xl:pr-12"
                       : "lg:col-start-1 lg:row-start-1 items-start text-left lg:ml-12"
                     }
                   `}
@@ -189,8 +189,8 @@ export default function PartnershipsPage() {
                     src={item.extraImage}
                     alt="Partnership detail"
                     className="
-                      w-[95%] md:w-[85%] lg:w-[85%] max-w-[1450px] rounded-xl object-contain
-                      h-[300px] md:h-[380px] lg:h-[440px]
+                      w-[95%] md:w-[88%] lg:w-[97%] max-w-[1300px] rounded-xl object-contain
+                      h-[300px] md:h-[380px] lg:h-[420px]
                     "
                   />
                 </div>

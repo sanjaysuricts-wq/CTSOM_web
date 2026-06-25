@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -50,19 +51,24 @@ export default function NewsMedia() {
           <div className="border-r pr-10">
             <article className="overflow-hidden rounded-xl border shadow-sm">
               <img
-                src="/images/news.jpg"
+                src="/images/nor_shipping_2025_1.webp"
                 alt="news"
                 className="h-[300px] w-full object-cover"
               />
               <div className="h-1 bg-gradient-to-r from-blue-700 to-lime-400" />
               <div className="p-8">
                 <h3 className="text-3xl font-bold mb-3">
-                  Wind Turbine Maintenance Programme Completed
+                  NOR Shipping 2025
                 </h3>
                 <p className="text-gray-500">
-                  Major offshore wind farm maintenance campaign delivered
-                  ahead of schedule.
+                  A great few days at Nor-Shipping 2025 meeting industry professionals, sharing ideas, and exploring what's next for the maritime industry
                 </p>
+                  <Link
+    href="/news-media/gallery?story=NOR+Shipping+2025"
+    className="mt-5 inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors"
+  >
+    View Gallery →
+  </Link>
               </div>
             </article>
           </div>

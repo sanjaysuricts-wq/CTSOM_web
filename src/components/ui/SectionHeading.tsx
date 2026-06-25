@@ -58,7 +58,7 @@ export default function SectionHeading({
       {description && (
         <p
           className={cn( 'hidden sm:block',
-            'mx-auto mt-4 max-w-2xl text-lg leading-relaxed',
+            'mx-auto mt-4 max-w-4xl text-lg leading-relaxed',
             light ? 'text-white/70' : 'text-neutral-600',
             align === 'left' && 'mx-0' 
           )}

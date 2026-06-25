@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import Hero from "@/components/sections/Hero";
 import CTASection from "@/components/sections/CTASection";
 
@@ -173,13 +174,28 @@ const galleryItems: {
 /* ------------------------------------------------------------------
  * Page
  * ------------------------------------------------------------------ */
-export default function GalleryPage() {
+function GalleryPageInner() {
+  const searchParams = useSearchParams();
+
   const [activeCategory, setActiveCategory] =
-    useState<Category>("Operations");
+    useState<Category>("All");
 
   const [selectedStory, setSelectedStory] =
     useState<keyof typeof featuredStories>("Seamac - Engine Overhaul");
   const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  useEffect(() => {
+    const story = searchParams.get("story");
+    if (story && story in featuredStories) {
+      const key = story as keyof typeof featuredStories;
+      setSelectedStory(key);
+      // Also set the matching category filter
+      const matchingItem = galleryItems.find((item) => item.title === story);
+      if (matchingItem) {
+        setActiveCategory(matchingItem.category as Category);
+      }
+    }
+  }, [searchParams]);
 
   const currentStory = featuredStories[selectedStory];
 
@@ -473,5 +489,13 @@ export default function GalleryPage() {
         }}
       />
     </main>
+  );
+}
+
+export default function GalleryPage() {
+  return (
+    <Suspense>
+      <GalleryPageInner />
+    </Suspense>
   );
 }
