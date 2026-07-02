@@ -29,8 +29,8 @@ const resources = [
     },
     {
         title: "CTS Official Icons",
-        image: "/images/ctslogo_cover_resources.WEBP",
-        fileUrl: "/CTS Logos.pdf",
+        image: "/images/ctslogo_cover_resourceSS.WEBP",
+        fileUrl: "/CTS_Logos.pdf",
         size: "1.2 MB",
     },
 ];
@@ -44,22 +44,26 @@ const handleDownload = (fileUrl: string, title: string) => {
 };
 
 const handleShare = async (item: any) => {
-    const shareData = {
-        title: item.title,
-        text: item.title,
-        url: window.location.origin + item.fileUrl,
-    };
+  const shareUrl = `${window.location.origin}${item.fileUrl}`;
 
+  try {
+    // Check support first
     if (navigator.share) {
-        try {
-            await navigator.share(shareData);
-        } catch (err) {
-            console.log("Share cancelled");
-        }
+      await navigator.share({
+        title: item.title,
+        text: `Download: ${item.title}`,
+        url: shareUrl,
+      });
     } else {
-        await navigator.clipboard.writeText(shareData.url);
-        alert("Link copied to clipboard");
+      await navigator.clipboard.writeText(shareUrl);
+      alert("Link copied to clipboard");
     }
+  } catch (error) {
+    console.error("Share failed:", error);
+
+    await navigator.clipboard.writeText(shareUrl);
+    alert("Link copied to clipboard");
+  }
 };
 export default function ResourcesPage() {
     return (
@@ -121,7 +125,7 @@ export default function ResourcesPage() {
                         {resources.map((item) => (
                             <div
                                 key={item.title}
-                                className="overflow-hidden rounded-xl bg-neutral-50 border border-neutral-100 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                                className="overflow-hidden rounded-xl bg-[#e8e8e8] border border-neutral-100 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
                             >
 
                                 <img
@@ -136,11 +140,11 @@ export default function ResourcesPage() {
                                         {item.title}
                                     </h3>
 
-                                    <p className="font-body text-sm text-neutral-600 mb-6">
+                                    <p className="font-body text-sm text-neutral-900 mb-6">
                                         Mobile Version | PDF | {item.size}
                                     </p>
 
-                                    <div className="border-t border-neutral-200 pt-4 flex justify-between items-center">
+                                    <div className="border-t border-neutral-700 pt-4 flex justify-between items-center">
 
                                         <span className="font-body text-xs text-neutral-800">
                                             05/06/2026
@@ -158,7 +162,7 @@ export default function ResourcesPage() {
 
                                             <button
                                                 onClick={() => handleShare(item)}
-                                                className="text-primary hover:text-primary-600 transition-colors"
+                                                className="text-primary hover:text-primary-900 transition-colors"
                                                 aria-label="Share"
                                             >
                                                 <Share2 size={20} />
@@ -180,7 +184,7 @@ export default function ResourcesPage() {
             </section>
 
             {/* PRESS */}
-            <section className="bg-neutral-50 py-20">
+            <section className="bg-[#e8e8e8] py-20">
 
                 <div className="container mx-auto w-full px-2 lg:px-2">
                     <div className="text-center max-w-2xl mx-auto">
@@ -189,7 +193,7 @@ export default function ResourcesPage() {
                             Press & Media Enquiries
                         </h2>
 
-                        <p className="font-body text-lg text-primary-300">
+                        <p className="font-body text-lg text-primary-320">
                             Looking to connect with us for a media opportunity,
                             interview, or publication feature?
                         </p>

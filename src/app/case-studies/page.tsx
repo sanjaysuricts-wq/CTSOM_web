@@ -1,20 +1,136 @@
+
+"use client";
+import { useEffect, useRef, useState } from "react";
+import { supabase } from "@/lib/supabase";
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import Hero from '@/components/sections/Hero'
 import CTASection from '@/components/sections/CTASection'
 import SectionHeading from '@/components/ui/SectionHeading'
-import { COMPANY, CASE_STUDIES, PAGE_BANNERS } from '@/lib/constants'
+import { COMPANY,  PAGE_BANNERS } from '@/lib/constants'
 import { MapPin, ArrowRight, Calendar } from 'lucide-react'
 
-export const metadata: Metadata = {
-  title: `Case Studies | ${COMPANY.shortName}`,
-  description: 'Explore real-world projects where CTS Offshore delivered proven results for offshore, renewable energy, cruise, and maritime clients worldwide.',
+// export const metadata: Metadata = {
+//   title: `Case Studies | ${COMPANY.shortName}`,
+//   description: 'Explore real-world projects where CTS Offshore delivered proven results for offshore, renewable energy, cruise, and maritime clients worldwide.',
+// }
+
+// const categories = ['All', ...Array.from(new Set(CASE_STUDIES.map((cs) => cs.sector)))]
+
+
+const PAGE_SIZE = 6;
+
+interface CaseStudy {
+  id: number;
+  title: string;
+  slug: string;
+  summary: string;
+  client: string;
+  vessel?: string;
+  location: string;
+  date: string;
+  image_url: string;
+  sector: string;
+  category: string;
+  challenge: string;
+  solution: string;
+  result: string;
+  highlights: string[];
 }
 
-const categories = ['All', ...Array.from(new Set(CASE_STUDIES.map((cs) => cs.sector)))]
 
 export default function CaseStudiesPage() {
+  const [cases, setCases] = useState<CaseStudy[]>([]);
+  const [page, setPage] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+
+  const loaderRef = useRef<HTMLDivElement>(null);
+  const hasFetchedRef = useRef(false);
+
+  const fetchCases = async (pageIndex: number) => {
+    setLoading(true);
+
+    const from = pageIndex * PAGE_SIZE;
+    const to = from + PAGE_SIZE - 1;
+
+    const { data, error } = await supabase
+      .from("casestudies")
+      .select("*")
+      .order("id", { ascending: false })
+      .range(from, to);
+
+    if (error) {
+      console.error(error);
+      setLoading(false);
+      return;
+    }
+
+    if (!data || data.length === 0) {
+      setHasMore(false);
+      setLoading(false);
+      return;
+    }
+
+    if (data.length < PAGE_SIZE) {
+      setHasMore(false);
+    }
+
+    setCases(prev => {
+      const existing = new Set(prev.map(i => i.id));
+      const filtered = data.filter(i => !existing.has(i.id));
+      return [...prev, ...filtered];
+    });
+
+    setLoading(false);
+  };
+
+  // Initial load
+  useEffect(() => {
+    if (hasFetchedRef.current) return;
+
+    hasFetchedRef.current = true;
+    fetchCases(0);
+  }, []);
+
+
+  // Infinite scroll
+  useEffect(() => {
+    if (!hasMore || loading) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setPage((prev) => {
+            const next = prev + 1;
+
+            fetchCases(next);
+
+            return next;
+          });
+        }
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    const current = loaderRef.current;
+
+    if (current) {
+      observer.observe(current);
+    }
+
+    return () => {
+      if (current) observer.unobserve(current);
+      observer.disconnect();
+    };
+  }, [hasMore, loading]);
+
+
+
+
   return (
     <>
       <Hero
@@ -36,7 +152,7 @@ export default function CaseStudiesPage() {
           />
 
           {/* Category Tags */}
-          <div className="mb-12 flex flex-wrap justify-center gap-3">
+          {/* <div className="mb-12 flex flex-wrap justify-center gap-3">
             {categories.map((cat) => (
               <span
                 key={cat}
@@ -45,10 +161,10 @@ export default function CaseStudiesPage() {
                 {cat}
               </span>
             ))}
-          </div>
+          </div> */}
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {CASE_STUDIES.map((study) => (
+            {cases.map((study) => (
               <Link
                 key={study.slug}
                 href={`/case-studies/${study.slug}`}
@@ -57,7 +173,7 @@ export default function CaseStudiesPage() {
                 <article className="overflow-hidden rounded-xl border border-neutral-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                   <div className="relative h-48 w-full overflow-hidden">
                     <Image
-                      src={study.image}
+                      src={study.image_url}
                       alt={study.title}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -74,7 +190,7 @@ export default function CaseStudiesPage() {
                     </div>
                   </div>
                   <div className="p-6">
-                    <div className="mb-2 flex items-center gap-4 text-xs text-neutral-500">
+                    <div className="mb-2 flex items-center gap-4 text-xs text-neutral-700">
                       <span className="flex items-center gap-1">
                         <MapPin className="h-3 w-3" />
                         {study.location}
@@ -102,6 +218,23 @@ export default function CaseStudiesPage() {
               </Link>
             ))}
           </div>
+
+          {hasMore && (
+            <div
+              ref={loaderRef}
+              className="mt-10 flex justify-center py-6"
+            >
+              {loading && (
+                <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+              )}
+            </div>
+          )}
+
+          {!hasMore && cases.length > 0 && (
+            <p className="mt-8 text-center text-sm text-neutral-600">
+              You've seen all {cases.length} case studies.
+            </p>
+          )}
         </div>
       </section>
 
@@ -127,6 +260,7 @@ export default function CaseStudiesPage() {
           </div>
         </div>
       </section>
+      
 
       {/* Testimonial */}
       <section className="bg-neutral-50 py-16">

@@ -1,26 +1,37 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { notFound } from 'next/navigation'
 import Hero from '@/components/sections/Hero'
 import CTASection from '@/components/sections/CTASection'
 import Button from '@/components/ui/Button'
-import { COMPANY, CASE_STUDIES } from '@/lib/constants'
+import { COMPANY,  } from '@/lib/constants'
+import { notFound } from 'next/navigation'
+import { supabase } from '@/lib/supabase'
 import { MapPin, Calendar, Building2, Ship, ArrowRight, CheckCircle2 } from 'lucide-react'
 
 interface CaseStudyPageProps {
   params: Promise<{ slug: string }>
 }
 
-export async function generateStaticParams() {
-  return CASE_STUDIES.map((cs) => ({ slug: cs.slug }))
-}
+// export async function generateStaticParams() {
+//   return CASE_STUDIES.map((cs) => ({ slug: cs.slug }))
+// }
 
 export async function generateMetadata({
   params,
 }: CaseStudyPageProps): Promise<Metadata> {
   const { slug } = await params
-  const study = CASE_STUDIES.find((cs) => cs.slug === slug)
+  // const study = CASE_STUDIES.find((cs) => cs.slug === slug)
+
+  const { data: study, error } = await supabase
+    .from("casestudies")
+    .select("*")
+    .eq("slug", slug)
+    .single();
+
+  if (error || !study) notFound();
+
+
   if (!study) return { title: `Case Study | ${COMPANY.shortName}` }
   return {
     title: `${study.title} | ${COMPANY.shortName}`,
@@ -30,34 +41,50 @@ export async function generateMetadata({
 
 export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps) {
   const { slug } = await params
-  const study = CASE_STUDIES.find((cs) => cs.slug === slug)
+  // const study = CASE_STUDIES.find((cs) => cs.slug === slug)
+
+  const { data: study, error } = await supabase
+    .from("casestudies")
+    .select("*")
+    .eq("slug", slug)
+    .single();
+
+  if (error || !study) notFound();
 
   if (!study) {
     notFound()
   }
 
-  const relatedStudies = CASE_STUDIES.filter(
-    (cs) => cs.slug !== study.slug && (cs.sector === study.sector || cs.category === study.category)
-  ).slice(0, 3)
+  // const relatedStudies = CASE_STUDIES.filter(
+  //   (cs) => cs.slug !== study.slug && (cs.sector === study.sector || cs.category === study.category)
+  // ).slice(0, 3)
+  const { data: relatedStudiesRaw } = await supabase
+    .from("casestudies")
+    .select("*")
+    .neq("slug", slug)
+    .limit(3);
+
+  const relatedStudies = relatedStudiesRaw ?? [];
+
 
   return (
     <>
-      {/* <Hero
+      <Hero
         variant="page"
-        // title={study.title}
-        // subtitle={`${study.client}${study.vessel ? ` — ${study.vessel}` : ''}`}
-        // breadcrumbs={[
-        //   { label: 'Case Studies', href: '/case-studies' },
-        //   { label: study.title, href: `/case-studies/${study.slug}` },
-        // ]}
-      /> */}
+        title={study.title}
+        subtitle={`${study.client}${study.vessel ? ` — ${study.vessel}` : ''}`}
+        breadcrumbs={[
+          { label: 'Case Studies', href: '/case-studies' },
+          { label: study.title, href: `/case-studies/${study.slug}` },
+        ]}
+      />
 
       {/* Hero Image */}
       <section className="bg-white">
         <div className="container mx-auto w-full  px-6 lg:px-12">
           <div className="relative -mt-8 h-64 overflow-hidden rounded-xl sm:h-80 lg:h-96">
             <Image
-              src={study.image}
+              src={study.image_url}
               alt={study.title}
               fill
               className="object-cover"
@@ -150,16 +177,18 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
                 Key Highlights
               </h3>
               <div className="grid gap-4 sm:grid-cols-2">
-                {study.highlights.map((highlight) => (
-                  <div key={highlight} className="flex items-start gap-3">
+                {(study.highlights?.split(",") ?? []).map((highlight: string) => (
+                  <div key={highlight.trim()} className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent-700" />
                     <span className="font-body text-sm font-medium text-primary-700">
-                      {highlight}
+                      {highlight.trim()}
                     </span>
                   </div>
                 ))}
               </div>
             </div>
+
+
           </div>
         </div>
       </section>
@@ -181,7 +210,7 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
                   <article className="overflow-hidden rounded-xl border border-neutral-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                     <div className="relative h-40 w-full overflow-hidden">
                       <Image
-                        src={related.image}
+                        src={related.image_url}
                         alt={related.title}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-110"

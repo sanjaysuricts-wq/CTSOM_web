@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { PAGE_BANNERS } from "@/lib/constants";
+import { COMPANY  } from '@/lib/constants'
 
 /* ------------------------------------------------------------------
  * RECOMMENDED IMAGE DIMENSIONS:
@@ -202,15 +203,33 @@ export default function PartnershipsPage() {
         </div>
       </section>
 
+            <section className="bg-[#e8e8e8] py-16">
+              <div className="container mx-auto w-full px-2 lg:px-2">
+                <div className="mx-auto max-w-2xl text-center">
+                  <h2 className="font-heading text-2xl font-bold text-primary">Partnerships Enquiries</h2>
+                  <p className="mt-4 font-body text-base text-neutral-700">
+                    Interested in partnering or collaborating with us ?
+                    Reach out to explore opportunities across the maritime and energy sectors
+                  </p>
+                  <a
+                    href={`mailto:${COMPANY.email}`}
+                    className="mt-6 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-heading text-sm font-bold text-white transition-all hover:bg-primary-600"
+                  >
+                    Get in touch
+                  </a>
+                </div>
+              </div>
+            </section>
+
       {/* CTA */}
-      <CTASection
+      {/* <CTASection
         title="Partnership Enquiries"
         description="Interested in partnering or collaborating with us? Reach out to explore opportunities across maritime and energy sectors."
         primaryCTA={{
           label: "Get in Touch",
           href: "mailto:info@ctsom.com",
         }}
-      />
+      /> */}
 
     </main>
   );

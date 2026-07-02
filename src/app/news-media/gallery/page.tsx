@@ -290,7 +290,7 @@ function GalleryPageInner() {
                       className="w-full h-[260px] sm:h-[340px] md:h-[420px] lg:h-[520px] object-cover rounded-lg md:rounded-xl"
                     />
                     {/* Expand icon — wire up lightbox here if needed */}
-                    <button
+                    {/* <button
                       type="button"
                       aria-label="Expand image"
                       className="absolute bottom-3 right-3 bg-primary/80 text-white rounded-lg p-2 opacity-0 group-hover:opacity-100 transition-opacity hidden md:flex hover:bg-primary"
@@ -309,7 +309,7 @@ function GalleryPageInner() {
                           d="M3 9V3h6M21 9V3h-6M3 15v6h6M21 15v6h-6"
                         />
                       </svg>
-                    </button>
+                    </button> */}
                   </div>
                 </SwiperSlide>
               ))}
@@ -479,15 +479,38 @@ function GalleryPageInner() {
         </div>
       </section>
 
+                  <section className="bg-[#e8e8e8] py-20">
+
+                <div className="container mx-auto w-full px-2 lg:px-2">
+                    <div className="text-center max-w-2xl mx-auto">
+
+                        <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
+                            Press & Media Enquiries
+                        </h2>
+
+                        <p className="font-body text-lg text-primary-320">
+                            Looking to connect with us for a media opportunity,
+                            interview, or publication feature?
+                        </p>
+
+                        <button className="mt-8 rounded-lg bg-primary px-8 py-3 font-heading text-sm font-bold text-white hover:bg-primary-600 transition-colors">
+                            Get in touch
+                        </button>
+
+                    </div>
+                </div>
+
+            </section>
+
       {/* CTA */}
-      <CTASection
+      {/* <CTASection
         title="Press & Media Enquiries"
         description="Looking to connect with us for a media opportunity, interview, or publication feature?"
         primaryCTA={{
           label: "Get in Touch",
           href: "mailto:info@ctsom.com",
         }}
-      />
+      /> */}
     </main>
   );
 }

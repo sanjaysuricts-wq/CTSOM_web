@@ -19,3 +19,15 @@ const nextConfig = {
 }
 
 module.exports = withBundleAnalyzer(nextConfig)
+
+module.exports = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "jchplqfeqobfiuoihfat.supabase.co",
+        pathname: "/storage/v1/object/**",
+      },
+    ],
+  },
+};

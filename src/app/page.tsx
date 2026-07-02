@@ -158,7 +158,7 @@ export default function HomePage() {
                     <p className="mt-1 font-body text-sm text-white/80 line-clamp-2">
                       {sector.description}
                     </p>
-                    <div className="mt-3 flex items-center gap-2 font-body text-sm font-semibold text-white transition-colors">
+                    <div className="mt-3 flex items-center gap-2 font-body text-sm font-semibold text-[#DCF953] transition-colors">
                       Explore
                       <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </div>
