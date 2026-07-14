@@ -3,6 +3,7 @@
 import { useMemo, useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Hero from "@/components/sections/Hero";
+import { useRef } from "react";
 import CTASection from "@/components/sections/CTASection";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -17,6 +18,8 @@ import { PAGE_BANNERS } from "@/lib/constants";
  * FEATURED STORY — BorWin Gamma Hook-Up Project
  * Replace image paths with your real files in /public
  * ------------------------------------------------------------------ */
+
+
 const featuredStories = {
   "Seamac - Engine Overhaul": {
     title: "Seamac - Engine Overhaul",
@@ -87,7 +90,7 @@ const featuredStories = {
     images: [
       "/images/20251020_103813_Edited copy.webp",
       "/images/20251020_090202 copy.webp",
-      "/images/20251017_145510_Edited.webp", 
+      "/images/20251017_145510_Edited.webp",
       "/images/20251017_122648.webp",
       "/images/20251017_131636 copy.webp",
     ],
@@ -95,7 +98,7 @@ const featuredStories = {
 
   "BorWin Gamma Hook-Up Project": {
     title: "BorWin Gamma Hook-Up Project",
-    tags: ["Operations","Teams"],
+    tags: ["Operations", "Teams"],
     description:
       "BorWin Gamma topside successfully hooked-up by our team at 130km offshore in the North Sea,marking a critical project milestone in the installation of the 900 MW HVDC converter platform. installed using the float-over method, the structure was precisely aligned and secured to its jacket 40m belowe sea level, completing a complex offshore operation under challenging North Sea conditions. This achievement supports the transmission of renewable energy to over one million homes through the german national grid",
     images: [
@@ -177,6 +180,8 @@ const galleryItems: {
 function GalleryPageInner() {
   const searchParams = useSearchParams();
 
+  const featuredRef = useRef<HTMLDivElement>(null);
+
   const [activeCategory, setActiveCategory] =
     useState<Category>("All");
 
@@ -228,7 +233,10 @@ function GalleryPageInner() {
       />
 
       {/* FEATURED STORY */}
-      <section className="bg-white py-20">
+      <section
+        ref={featuredRef}
+        className="bg-white py-20"
+      >
         <div className="container mx-auto w-full px-6 lg:px-12">
           <div className="max-w-7xl">
             <div className="mb-4 h-1 w-12 rounded-full bg-accent" />
@@ -257,6 +265,7 @@ function GalleryPageInner() {
           {/* Carousel */}
           <div className="mt-8 md:mt-10">
             <Swiper
+              key={selectedStory}
               modules={[Navigation, Pagination]}
               navigation={{
                 prevEl: ".borwin-prev",
@@ -445,9 +454,9 @@ function GalleryPageInner() {
                     );
                   }
 
-                  window.scrollTo({
-                    top: 250,
+                  featuredRef.current?.scrollIntoView({
                     behavior: "smooth",
+                    block: "start",
                   });
                 }}
               >
@@ -479,28 +488,28 @@ function GalleryPageInner() {
         </div>
       </section>
 
-                  <section className="bg-[#e8e8e8] py-20">
+      <section className="bg-[#e8e8e8] py-20">
 
-                <div className="container mx-auto w-full px-2 lg:px-2">
-                    <div className="text-center max-w-2xl mx-auto">
+        <div className="container mx-auto w-full px-2 lg:px-2">
+          <div className="text-center max-w-2xl mx-auto">
 
-                        <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
-                            Press & Media Enquiries
-                        </h2>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
+              Press & Media Enquiries
+            </h2>
 
-                        <p className="font-body text-lg text-primary-320">
-                            Looking to connect with us for a media opportunity,
-                            interview, or publication feature?
-                        </p>
+            <p className="font-body text-lg text-primary-320">
+              Looking to connect with us for a media opportunity,
+              interview, or publication feature?
+            </p>
 
-                        <button className="mt-8 rounded-lg bg-primary px-8 py-3 font-heading text-sm font-bold text-white hover:bg-primary-600 transition-colors">
-                            Get in touch
-                        </button>
+            <button className="mt-8 rounded-lg bg-primary px-8 py-3 font-heading text-sm font-bold text-white hover:bg-primary-600 transition-colors">
+              Get in touch
+            </button>
 
-                    </div>
-                </div>
+          </div>
+        </div>
 
-            </section>
+      </section>
 
       {/* CTA */}
       {/* <CTASection

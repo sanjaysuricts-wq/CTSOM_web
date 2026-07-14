@@ -29,7 +29,7 @@ const resources = [
     },
     {
         title: "CTS Official Icons",
-        image: "/images/ctslogo_cover_resourceSS.WEBP",
+        image: "/images/ctslogo_cover_resource.webp",
         fileUrl: "/CTS_Logos.pdf",
         size: "1.2 MB",
     },
@@ -44,26 +44,26 @@ const handleDownload = (fileUrl: string, title: string) => {
 };
 
 const handleShare = async (item: any) => {
-  const shareUrl = `${window.location.origin}${item.fileUrl}`;
+    const shareUrl = `${window.location.origin}${item.fileUrl}`;
 
-  try {
-    // Check support first
-    if (navigator.share) {
-      await navigator.share({
-        title: item.title,
-        text: `Download: ${item.title}`,
-        url: shareUrl,
-      });
-    } else {
-      await navigator.clipboard.writeText(shareUrl);
-      alert("Link copied to clipboard");
+    try {
+        // Check support first
+        if (navigator.share) {
+            await navigator.share({
+                title: item.title,
+                text: `Download: ${item.title}`,
+                url: shareUrl,
+            });
+        } else {
+            await navigator.clipboard.writeText(shareUrl);
+            alert("Link copied to clipboard");
+        }
+    } catch (error) {
+        console.error("Share failed:", error);
+
+        await navigator.clipboard.writeText(shareUrl);
+        alert("Link copied to clipboard");
     }
-  } catch (error) {
-    console.error("Share failed:", error);
-
-    await navigator.clipboard.writeText(shareUrl);
-    alert("Link copied to clipboard");
-  }
 };
 export default function ResourcesPage() {
     return (
