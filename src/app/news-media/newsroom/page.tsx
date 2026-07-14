@@ -8,43 +8,25 @@ import SectionHeading from '@/components/ui/SectionHeading'
 import { COMPANY, PAGE_BANNERS } from "@/lib/constants";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 
 
-const feed = [
-  {
-    platform: "linkedin",
-    handle: "CTS Offshore and Marine",
-    time: "2 hrs ago",
-    caption:
-      "Posidonia 2026 is in full swing! The week is moving fast and it’s been great connecting everyone...",
-    image: "/images/feed/feed-1.webp",
-  },
-  {
-    platform: "instagram",
-    handle: "@_ctsom",
-    time: "1 day ago",
-    caption:
-      "Posidonia 2026 is in full swing! The week is moving fast and it’s been great connecting everyone...",
-    image: "/images/feed/feed-1.webp",
-  },
-  {
-    platform: "facebook",
-    handle: "@CTSOffshoreandMarine",
-    time: "2 days ago",
-    caption:
-      "Posidonia 2026 is in full swing! The week is moving fast and it’s been great connecting everyone...",
-    image: "/images/feed/feed-1.webp",
-  },
-  {
-    platform: "x",
-    handle: "@_ctsom",
-    time: "3 days ago",
-    caption:
-      "Posidonia 2026 is in full swing! The week is moving fast and it’s been great connecting everyone...",
-    image: "/images/feed/feed-1.webp",
-  },
-];
+interface SocialFeedItem {
+  id: number;
+  platform: string;
+  summary: string;
+  likes: number;
+  comments: number;
+  time: string;
+  link: string;
+  image_url: string;
+}
+
+
+
 
 const galleryHighlights = [
   {
@@ -105,6 +87,9 @@ export default function NewsroomPage() {
   const loaderRef = useRef<HTMLDivElement>(null);
   const hasFetchedRef = useRef(false); // ← guards against Strict Mode double-invoke
 
+  const [feed, setFeed] = useState<SocialFeedItem[]>([]);
+  const [feedLoading, setFeedLoading] = useState(false);
+
   const fetchNews = async (pageIndex: number) => {
     if (loading) return;
 
@@ -145,11 +130,40 @@ export default function NewsroomPage() {
     setLoading(false);
   };
 
+  const fetchSocialFeed = async () => {
+
+    setFeedLoading(true);
+
+    const { data, error } = await supabase
+      .from("sociamediapost")
+      .select("*")
+      .order("time", { ascending: false })
+      .limit(10);
+
+    console.log("SOCIAL DATA:", data);
+    console.log("SOCIAL ERROR:", error);
+
+
+    if (error) {
+      console.error("Social feed error:", error.message);
+      setFeedLoading(false);
+      return;
+    }
+
+
+    setFeed(data || []);
+    setFeedLoading(false);
+  };
+
   // ── Initial fetch (page 0) — runs once, guarded against Strict Mode ──
   useEffect(() => {
     if (hasFetchedRef.current) return;
+
     hasFetchedRef.current = true;
+
     fetchNews(0);
+    fetchSocialFeed();
+
   }, []);
 
   // ── Infinite scroll observer — triggers pages 1, 2, 3... ──
@@ -328,26 +342,9 @@ export default function NewsroomPage() {
         </div>
       </section>
 
-      {/* Press Contact */}
-      <section className="bg-[#e8e8e8] py-16">
-        <div className="container mx-auto w-full px-2 lg:px-2">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="font-heading text-2xl font-bold text-primary">Press & Media Enquiries</h2>
-            <p className="mt-4 font-body text-base text-neutral-700">
-              Looking to connect with us for a media opportunity,
-              interview, or publication feature
-            </p>
-            <a
-              href={`mailto:${COMPANY.email}`}
-              className="mt-6 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-heading text-sm font-bold text-white transition-all hover:bg-primary-600"
-            >
-              Get in touch
-            </a>
-          </div>
-        </div>
-      </section>
+
       {/* In the feeeeeeeeed */}
-      {/* <section className="bg-[#f7f8fb] py-16">
+      <section className="bg-[#f7f8fb] py-16">
         <div className="container mx-auto px-6">
 
           <div className="mb-10">
@@ -369,7 +366,7 @@ export default function NewsroomPage() {
             pagination={{
               clickable: true,
             }}
-            spaceBetween={24}
+            spaceBetween={28}
             breakpoints={{
               0: {
                 slidesPerView: 1,
@@ -382,66 +379,128 @@ export default function NewsroomPage() {
               },
             }}
           >
-            {feed.map((item, index) => (
-              <SwiperSlide key={index}>
+            {feed.map((item) => (
+              <SwiperSlide key={item.id}>
+
+
                 <article
                   className="
-                rounded-2xl
-                bg-white
-                shadow-sm
-                overflow-hidden
-                border
-                hover:shadow-lg
-                transition
-              "
+    relative
+    rounded-2xl
+    bg-[#e8e8e8]
+    shadow-sm
+    overflow-hidden
+    hover:shadow-lg
+    transition
+  "
                 >
                   <div className="p-5">
 
                     <div className="flex items-center gap-3 mb-4">
 
-                      <div className="h-10 w-10 rounded-full bg-[#14387f]" />
+                      <div className="h-10 w-10 rounded-full  overflow-hidden flex items-center justify-center">
+                        <img
+                          src="/images/test email logo copy.png"
+                          alt="Platform"
+                          className="h-full w-full object-contain"
+                        />
+                      </div>
 
                       <div>
                         <h4 className="font-semibold">
-                          {item.handle}
+                          {item.platform}
                         </h4>
 
                         <span className="text-sm text-gray-500">
-                          {item.time}
+
+                          {formatDate(item.time)}
                         </span>
                       </div>
                     </div>
 
-                    <p className="text-sm text-gray-700 line-clamp-4">
-                      {item.caption}
+                    <p className="text-sm text-gray-700 line-clamp-3">
+                      {item.summary}
                     </p>
 
-                    <button className="mt-3 text-[#14387f] font-semibold">
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 text-[#14387f] font-semibold"
+                    >
                       Read More
-                    </button>
+                    </a>
                   </div>
 
-                  <div className="relative h-[230px]">
+                  <div className="relative h-[250px]">
 
                     <img
-                      src={item.image}
+                      src={item.image_url}
                       alt=""
-
-                      className="object-cover"
+                      className="w-full h-full object-cover object-center"
                     />
                   </div>
 
-                  <div className="flex justify-between p-4 text-gray-500 text-sm">
-                    <span>♡ 3495</span>
-                    <span>💬 2698</span>
-                    <span>↗ Share</span>
+
+                  <div className="flex justify-between items-center -t p-4  bg-[#e8e8e8] text-gray-600">
+
+                    <button className="flex items-center gap-2 text-base hover:text-blue-500 transition">
+                      <span className="text-xl">♡</span>
+                      <span>{item.likes}</span>
+                    </button>
+
+                    <button className="flex items-center gap-2 text-base hover:text-blue-500 transition">
+                      <span className="text-xl">💬</span>
+                      <span>{item.comments}</span>
+                    </button>
+
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-base hover:text-[#14387f] transition"
+                    >
+                      <span className="text-xl inline-block rotate-[-40deg]">
+                        ➤
+                      </span>
+                      <span>Share</span>
+                    </a>
+
                   </div>
                 </article>
+                <div className="absolute top-5 right-3 z-10">
+                  <img
+                    src={`/images/social/${item.platform}.webp`}
+                    alt={item.platform}
+                    className="h-8 w-8 object-contain"
+                  />
+                </div>
+
+
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
-      </section> */}
+      </section>
+
+      {/* Press Contact */}
+      <section className="bg-[#e8e8e8] py-16">
+        <div className="container mx-auto w-full px-2 lg:px-2">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="font-heading text-2xl font-bold text-primary">Press & Media Enquiries</h2>
+            <p className="mt-4 font-body text-base text-neutral-700">
+              Looking to connect with us for a media opportunity,
+              interview, or publication feature
+            </p>
+            <a
+              href={`mailto:${COMPANY.email}`}
+              className="mt-6 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-heading text-sm font-bold text-white transition-all hover:bg-primary-600"
+            >
+              Get in touch
+            </a>
+          </div>
+        </div>
+      </section>
     </main>
   );
 

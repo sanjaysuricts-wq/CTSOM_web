@@ -87,7 +87,7 @@ export default async function SectorDetailPage({ params }: SectorPageProps) {
 
             <div className="mt-16 space-y-16">
               {/* Live Production Repairs */}
-              <div className="grid items-center gap-12 lg:grid-cols-2">
+              <div className="grid items-center gap-12 lg:grid-cols-2 ml-6 mr-6">
                 <div className="relative h-72 overflow-hidden rounded-xl lg:h-96">
                   <Image
                     src="/images/sectors_oil and gas_Live Production Repairs2.webp"
@@ -112,7 +112,7 @@ export default async function SectorDetailPage({ params }: SectorPageProps) {
               </div>
 
               {/* Reactivation and Cold Stacking */}
-              <div className="grid items-center gap-12 lg:grid-cols-2">
+              <div className="grid items-center gap-12 lg:grid-cols-2 ml-4 mr-4">
                 <div className="order-2 lg:order-1">
                   <h3 className="font-heading text-2xl font-bold text-primary">
                     Reactivation &amp; Cold Stacking
@@ -125,7 +125,7 @@ export default async function SectorDetailPage({ params }: SectorPageProps) {
                     corrosion protection to mechanical and electrical system reinstatement.
                   </p>
                 </div>
-                <div className="relative order-1 h-72 overflow-hidden rounded-xl lg:order-2 lg:h-96">
+                <div className="relative order-1 h-72 overflow-hidden rounded-xl lg:order-2 lg:h-96 ">
                   <Image
                     src="/images/04-sectors-oil-gas--oil-gas-rig-reactivation-jackup.jpg"
                     alt="Reactivation and Cold Stacking"
@@ -137,7 +137,7 @@ export default async function SectorDetailPage({ params }: SectorPageProps) {
               </div>
 
               {/* Fabric Maintenance */}
-              <div className="grid items-center gap-12 lg:grid-cols-2">
+              <div className="grid items-center gap-12 lg:grid-cols-2 ml-4 mr-4">
                 <div className="relative h-72 overflow-hidden rounded-xl lg:h-96">
                   <Image
                     src="/images/04-sectors-oil-gas--oil-gas-fabric-maintenance-painting.jpg"
@@ -169,8 +169,8 @@ export default async function SectorDetailPage({ params }: SectorPageProps) {
       {sector.slug === 'marine' && (
         <section className="bg-white py-20">
           <div className=" mx-auto px-6 lg:px-8">
-            <div className="mx-auto max-w-3xl text-center">
-              <div className="mx-auto mb-4 h-1 w-12 rounded-full bg-accent" />
+            <div className="mx-auto max-w-3xl text-center ">
+              <div className="mx-auto mb-4 h-1 w-12 rounded-full bg-accent " />
               <h2 className="font-heading text-3xl font-bold text-primary sm:text-4xl">
                 Your Global Marine Engineering Partner
               </h2>
@@ -182,7 +182,7 @@ export default async function SectorDetailPage({ params }: SectorPageProps) {
               </p>
             </div>
 
-            <div className="mt-16 space-y-16">
+            <div className="mt-16 space-y-16  ">
               {/* Retrofits */}
               <div className="grid items-center gap-12 lg:grid-cols-2">
                 <div className="relative h-72 overflow-hidden rounded-xl lg:h-96">
@@ -457,7 +457,7 @@ export default async function SectorDetailPage({ params }: SectorPageProps) {
       )}
 
       {/* Services Grid */}
-      <section className="bg-neutral-50 py-20">
+      <section className="bg-neutral-50 py-20 ml-4 mr-4">
         <div className=" mx-auto w-full  px-6 lg:px-12">
           <SectionHeading
             title={`${sector.title} Services`}
@@ -573,7 +573,7 @@ export default async function SectorDetailPage({ params }: SectorPageProps) {
 
       {/* Oil & Gas-specific: Specialist Services */}
       {sector.slug === 'oil-and-gas' && (
-        <section className="bg-neutral-50 py-20">
+        <section className="bg-neutral-50 py-20 ml-4 mr-4">
           <div className=" mx-auto w-full  px-6 lg:px-12">
             <div className="mx-auto max-w-3xl text-center">
               <div className="mx-auto mb-4 h-1 w-12 rounded-full bg-accent" />
@@ -632,7 +632,7 @@ export default async function SectorDetailPage({ params }: SectorPageProps) {
 
       {/* Other Sectors */}
       <section className="bg-white py-20">
-        <div className=" mx-auto w-full  px-6 lg:px-12">
+        <div className=" mx-auto w-full  px-6 lg:px-12 ml-4 mr-4">
           <SectionHeading
             title="Explore Other Sectors"
             description="Discover how CTS Offshore supports other industries with our comprehensive range of services."

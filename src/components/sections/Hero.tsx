@@ -118,7 +118,7 @@ export default function Hero({
         }}
       />
 
-      <div className="container relative z-10 mx-auto w-full  px-6 lg:px-20 py-4 md:py-0">
+      <div className="container relative z-10 mx-auto w-full  px-6 lg:px-10 py-4 md:py-0">
         {/* Breadcrumbs for page variant - Hidden */}
         {/* {!isHome && breadcrumbs && breadcrumbs.length > 0 && (
           <motion.nav

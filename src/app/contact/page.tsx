@@ -174,7 +174,7 @@ export default function ContactPage() {
 
       {/* Office Locations Section */}
       <section className="bg-neutral-50 py-20">
-        <div className=" mx-auto w-full  px-6 lg:px-12">
+        <div className=" mx-auto w-[95%]  px-6 lg:px-12">
           <SectionHeading
             title="Our Global Offices"
             subtitle="Locations"

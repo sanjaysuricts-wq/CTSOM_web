@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import './globals.css'
-
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { OrganizationSchema } from '@/components/shared/StructuredData'
@@ -34,6 +33,11 @@ export const metadata: Metadata = {
     title: 'CTS Offshore and Marine',
     description:
       'Global marine engineering company providing 24/7/365 in-situ afloat asset integrity services.',
+  },
+    icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+    shortcut: "/android-chrome-512512.png",
   },
 }
 

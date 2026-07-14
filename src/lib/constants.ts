@@ -4,10 +4,10 @@
 
 export const HOME_IMAGES = {
   hero: '/images/01-home--home-cts-helipad-branding.png',
-  cruise: '/images/2.1-cruise-image-home-page.jpg',
+  cruise: '/images/2.1_cruise_image_home_page.webp',
   oilAndGas: '/images/oilandgas_website.webp',
-  maritime: '/images/2.3-maritime-image-home-page.jpg',
-  renewables: '/images/2.4-renewables-image-home-page.jpg',
+  maritime: '/images/2.3_maritime _image_home_page.webp',
+  renewables: '/images/2.4_renewables_image_home_page.webp',
   engineering1: '/images/3.1-CTS-website-enginneering-home-image.jpg',
   engineering2: '/images/3.2-CTS-website-enginneering-home-image2.jpg',
   bespokeTeams: '/images/bespoke teams home section banner2.webp',

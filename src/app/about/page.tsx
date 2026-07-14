@@ -40,18 +40,18 @@ export default function AboutPage() {
         <div className=" mx-auto w-full  px-6 lg:px-12">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <div className="mb-4 h-1 w-12 rounded-full bg-accent" />
-              <h2 className="font-heading text-3xl font-bold text-primary sm:text-4xl">
+              <div className="mb-4 h-1 w-12 rounded-full bg-accent ml-4 mr-4 " />
+              <h2 className="font-heading text-3xl font-bold text-primary sm:text-4xl ml-4 mr-4">
                 Our Commitment
               </h2>
-              <p className="mt-6 font-body text-lg leading-relaxed text-primary-300">
+              <p className="mt-6 ml-4 mr-4 font-body text-lg leading-relaxed text-primary-300">
                 CTS Offshore is committed to delivering safe, reliable, and cost-effective
                 technical services to the marine, offshore, renewables, and cruise
                 industries worldwide. With over 20 years of experience, we have built
                 a reputation for technical excellence, rapid response, and unwavering
                 dedication to our clients.
               </p>
-              <p className="mt-4 font-body text-base leading-relaxed text-neutral-600">
+              <p className="mt-4 ml-4 mr-4 font-body text-base leading-relaxed text-primary-300">
                 Our commitment extends beyond service delivery. We invest in our people,
                 maintain the highest safety standards, and continuously innovate to meet
                 the evolving needs of the industries we serve. From our headquarters in
@@ -87,10 +87,10 @@ export default function AboutPage() {
             </div>
             <div>
               <div className="mb-4 h-1 w-12 rounded-full bg-accent" />
-              <h2 className="font-heading text-3xl font-bold text-primary sm:text-4xl">
+              <h2 className="font-heading text-3xl font-bold text-primary sm:text-4xl ml-4 mr-4">
                 Our Values
               </h2>
-              <p className="mt-6 font-body text-lg leading-relaxed text-primary-300">
+              <p className="mt-6 font-body text-lg leading-relaxed text-primary-300 ">
                 Our values define who we are and guide every decision we make. They are
                 the foundation upon which CTS Offshore has built lasting partnerships with
                 clients across the globe.
@@ -186,12 +186,12 @@ export default function AboutPage() {
               <h3 className="font-heading text-2xl font-bold text-primary">
                 Skilled Professionals
               </h3>
-              <p className="mt-4 font-body text-base leading-relaxed text-neutral-600">
+              <p className="mt-4 font-body text-base leading-relaxed text-primary-300">
                 From coded welders and mechanical fitters to electrical engineers and
                 project managers, our diverse team brings together the full spectrum of
                 skills needed for complex offshore and marine projects.
               </p>
-              <p className="mt-3 font-body text-base leading-relaxed text-neutral-600">
+              <p className="mt-3 font-body text-base leading-relaxed text-primary-300">
                 Every CTS team member undergoes rigorous training and holds the
                 certifications required for their specific discipline and operating
                 environment.
@@ -214,25 +214,25 @@ export default function AboutPage() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
               <div className="mb-4 h-1 w-12 rounded-full bg-accent" />
-              <h2 className="font-heading text-3xl font-bold text-primary sm:text-4xl">
+              <h2 className="font-heading text-3xl font-bold text-primary sm:text-4xl ml-4 mr-4">
                 Our Products
               </h2>
-              <p className="mt-6 font-body text-lg leading-relaxed text-primary-300">
+              <p className="mt-6 ml-4 mr-4 font-body text-lg leading-relaxed text-primary-300">
                 As an ISO 9001:2008 certified company with over 10 years of dedicated
                 spare parts expertise, CTS Offshore supplies a comprehensive range of
                 parts and equipment for the marine and offshore industries worldwide —
                 from main engine spares and compressors to pumps, hydraulics, electrical
                 systems, and galley equipment.
               </p>
-              <p className="mt-4 font-body text-base leading-relaxed text-neutral-600">
+              <p className="mt-4 ml-4 mr-4 font-body text-base leading-relaxed text-primary-300">
                 We deliver high-quality, genuine parts from reputable manufacturers at
                 competitive prices. Our experienced technical team is available 24/7,
                 ensuring efficient sourcing, accurate order fulfilment, and rapid
-                delivery through our global supply network — wherever you operate.
+                delivery through our global supply network  wherever you operate.
               </p>
               <Link
                 href="/contact"
-                className="mt-8 inline-flex items-center gap-2 rounded-lg border-2 border-primary px-6 py-3 font-heading text-sm font-bold text-primary transition-all hover:bg-primary hover:text-white"
+                className="mt-8 inline-flex ml-4 mr-4 items-center gap-2 rounded-lg border-2 border-primary px-6 py-3 font-heading text-sm font-bold text-primary transition-all hover:bg-primary hover:text-white"
               >
                 Enquire About Products
                 <ArrowRight className="h-4 w-4" />
