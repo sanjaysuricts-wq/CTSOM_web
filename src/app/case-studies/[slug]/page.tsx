@@ -135,11 +135,11 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
         <div className="container mx-auto px-6 lg:px-8">
           <div className="mx-auto max-w-8xl">
             {/* Overview */}
-            <div className="mb-12">
-              <p className="font-body text-lg leading-relaxed text-neutral-700">
+            {/* <div className="mb-12"> */}
+              {/* <p className="font-body text-lg leading-relaxed text-neutral-700">
                 {study.summary}
-              </p>
-            </div>
+              </p> */}
+            {/* </div> */}
 
             {/* Challenge */}
             <div className="mb-10">

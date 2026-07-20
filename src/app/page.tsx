@@ -44,7 +44,7 @@ export default function HomePage() {
         className="fixed top-4 left-4 z-40 hidden sm:inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2.5 font-heading text-sm font-bold text-primary shadow-lg transition-all hover:bg-accent-200 hover:-translate-y-0.5"
       >
         <Download className="h-4 w-4" />
-         <span> Download Brochure</span>
+         <span>Brochure</span>
         
       </a>
 

@@ -82,7 +82,7 @@ export default function ResourcesPage() {
 
                 <div className="relative z-10 container mx-auto w-full h-full px-2 lg:px-2 flex items-center">
 
-                    <div>
+                    <div  className="mb-4 ml-6">
 
                         <p className="uppercase tracking-[2px] text-accent font-body font-semibold mb-5">
                             Download our brochures, logos and corporate materials
@@ -99,7 +99,7 @@ export default function ResourcesPage() {
             </section>
 
             {/* MEDIA KIT */}
-            <section className="bg-white py-20">
+            <section className="bg-white py-20 ml-4">
 
                 <div className="container mx-auto w-full px-2 lg:px-2">
 

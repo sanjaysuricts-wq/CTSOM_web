@@ -120,12 +120,12 @@ export default async function NewsItemPage({ params }: Props) {
               </div>
 
               <h1 className="mb-5 text-3xl font-bold text-primary sm:text-4xl">
-                {item.title}
+                {item.Title}
               </h1>
 
-              <p className="mb-7 text-lg text-neutral-600 border-l-4 border-accent pl-5">
+              {/* <p className="mb-7 text-lg text-neutral-600 border-l-4 border-accent pl-5">
                 {item.summary}
-              </p>
+              </p> */}
 
               {/* BODY (FIXED → string not array) */}
               <div className="space-y-5 text-neutral-700 leading-relaxed">
