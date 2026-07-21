@@ -7,6 +7,7 @@ import { OrganizationSchema } from '@/components/shared/StructuredData'
 import CookieBanner from '@/components/CookieBanner'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 import WhatsAppButton from '@/components/WhatsAppButton'
+
 // import EmergencyChat from '@/components/ui/EmergencyChat' // Hidden temporarily
 
 
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     description:
       'Global marine engineering company providing 24/7/365 in-situ afloat asset integrity services.',
   },
-    icons: {
+  icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
     shortcut: "/android-chrome-512512.png",
@@ -73,7 +74,21 @@ export default function RootLayout({
 
         {/* Zoho SalesIQ Chat Widget */}
 
+        {/* Zoho SalesIQ */}
+        <Script id="zoho-salesiq-init" strategy="afterInteractive">
+          {`
+    window.$zoho = window.$zoho || {};
+    $zoho.salesiq = $zoho.salesiq || {
+      ready: function(){}
+    };
+  `}
+        </Script>
 
+        <Script
+          id="zsiqscript"
+          src="https://salesiq.zohopublic.com/widget?wc=siq715c285190701f5f9e471d2cf6016888541a8c9e0adc38df48c3e20c59ab76c50c878ee01777a3af8823020ef11db892"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   )

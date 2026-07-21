@@ -65,77 +65,77 @@ export default function EntryPoints() {
 
         <div className="grid grid-cols-1 xl:grid-cols-12 gap-x-16 gap-y-10 mt-1 items-start">
 
-    
-        <div className="lg:col-span-8">
-          <div
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-2"
 
-          // onMouseLeave={() =>
-          //     setSelectedText({
-          //         line1: 'mobilise a',
-          //         line2: 'riding team',
-          //         line3: 'Skilled riding crews offshore or in-yard, mobilised within 24 hours'
-          //     })
-          // }
-          >
-            {options.map((option) => (
-              <button
-                key={option.number}
-                onClick={() => {
-                  setSelectedText({
-                    line1: option.line1,
-                    line2: option.line2,
-                    line3: option.line3,
-                    line4: option.line4,
+          <div className="lg:col-span-8">
+            <div
+              className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-2"
 
-                  })
+            // onMouseLeave={() =>
+            //     setSelectedText({
+            //         line1: 'mobilise a',
+            //         line2: 'riding team',
+            //         line3: 'Skilled riding crews offshore or in-yard, mobilised within 24 hours'
+            //     })
+            // }
+            >
+              {options.map((option) => (
+                <button
+                  key={option.number}
+                  onClick={() => {
+                    setSelectedText({
+                      line1: option.line1,
+                      line2: option.line2,
+                      line3: option.line3,
+                      line4: option.line4,
 
-                  setActiveOption(option.number)
-                  setSelectedHref(option.href)
-                }}
-                className={`group px-5 py-3.5 max-w-[390px] min-h-[50px] rounded-[40px] text-left text-sm transition-colors
+                    })
+
+                    setActiveOption(option.number)
+                    setSelectedHref(option.href)
+                  }}
+                  className={`group px-5 py-3.5 max-w-[390px] min-h-[50px] rounded-[40px] text-left text-sm transition-colors
     ${activeOption === option.number
-                    ? 'bg-accent text-primary'
-                    : 'bg-white/5 text-white/50'
-                  }
+                      ? 'bg-accent text-primary'
+                      : 'bg-white/5 text-white/50'
+                    }
     hover:bg-accent hover:text-primary
   `}
-              >
-                {option.shortText}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* RIGHT SIDE */}
-<div className="xl:col-span-4 lg:mt-10 xl:mt-0 flex flex-col justify-start text-left lg:pl-10 xl:pl-14">
-
-
-        <div className="flex flex-col items-start text-left shrink-0 w-full ">
-          <span className="text-sm uppercase tracking-[0.2em] text-accent mb-2">
-
-             YOU’LL WANT
-          </span>
-          <h3 className="text-3xl font-semibold text-white leading-tight mb-2">
-            <span className="block">
-              {selectedText.line4}
-            </span>
-
-
-          </h3>
-
-          <div className="mt-2">
-            <button
-              onClick={() => selectedHref && router.push(selectedHref)}
-              disabled={!selectedHref}
-              className="rounded-full bg-accent px-7 py-3 text-sm font-semibold text-primary transition-all hover:opacity-90 disabled:opacity-40 flex"
-            >
-              Start a Brief 
-            </button>
-          </div>
-        </div>
-        </div>
+                >
+                  {option.shortText}
+                </button>
+              ))}
             </div>
+          </div>
+
+          {/* RIGHT SIDE */}
+          <div className="xl:col-span-4 lg:mt-10 xl:mt-0 flex flex-col justify-start text-left lg:pl-10 xl:pl-14">
+
+
+            <div className="flex flex-col items-start text-left shrink-0 w-full ">
+              <span className="text-sm uppercase tracking-[0.2em] text-accent mb-2">
+
+                YOU’LL WANT
+              </span>
+              <h3 className="text-3xl font-semibold text-white leading-tight mb-2">
+                <span className="block">
+                  {selectedText.line4}
+                </span>
+
+
+              </h3>
+
+              <div className="mt-2">
+                <button
+                  onClick={() => selectedHref && router.push(selectedHref)}
+                  disabled={!selectedHref}
+                  className="rounded-full bg-accent px-7 py-3 text-sm font-semibold text-primary transition-all hover:opacity-90 disabled:opacity-40 flex"
+                >
+                  Start a Brief
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
 
